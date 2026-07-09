@@ -94,7 +94,7 @@
 
     .features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 25px;
     }
     .card {
@@ -102,12 +102,23 @@
       backdrop-filter: blur(15px);
       border-radius: 15px;
       padding: 25px;
-      text-align: center;
       transition: transform 0.4s, box-shadow 0.4s;
     }
     .card:hover {
       transform: translateY(-10px);
       box-shadow: 0 12px 20px rgba(0,0,0,0.5);
+    }
+    .card h3 {
+      color: #00f2fe;
+      margin-bottom: 15px;
+    }
+    .card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .card ul li {
+      margin: 5px 0;
     }
 
     form {
@@ -177,64 +188,75 @@
   <section id="features">
     <h2>Features</h2>
     <div class="features">
-      <div class="card">📘 Grammar Lessons</div>
-      <div class="card">⏳ Tenses Practice</div>
-      <div class="card">🗣️ Direct & Indirect Speech</div>
-      <div class="card">🔤 Vocabulary Builder</div>
-      <div class="card">🔄 Synonyms & Antonyms</div>
-    </div>
-  </section>
-
-  <section id="register">
-    <h2>Student Registration</h2>
-    <form onsubmit="sendWhatsApp(event)">
-      <input type="text" id="name" placeholder="Full Name" required>
-      <input type="email" id="email" placeholder="Email Address" required>
-      <input type="tel" id="phone" placeholder="Phone Number" required>
-      <input type="number" id="age" placeholder="Age" required>
-      <input type="text" id="time" placeholder="Preferred Learning Time" required>
-      <button type="submit">Register Now</button>
-    </form>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p style="text-align:center;">📞 WhatsApp: 03083500829</p>
-    <p style="text-align:center;">📧 Email: info@learnenglishfast.com</p>
-  </section>
-
-  <footer>
-    <p>&copy; 2026 Learn English Fast. All rights reserved.</p>
-  </footer>
-
-  <!-- Particle.js Script -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": { "value": 80 },
-        "size": { "value": 3 },
-        "move": { "speed": 2 },
-        "line_linked": { "enable": true, "color": "#00f2fe" },
-        "color": { "value": "#ffffff" }
-      }
-    });
-
-    function sendWhatsApp(event) {
-      event.preventDefault();
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const phone = document.getElementById('phone').value;
-      const age = document.getElementById('age').value;
-      const time = document.getElementById('time').value;
-
-      const message = `New Registration:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nAge: ${age}\nPreferred Time: ${time}`;
-      const whatsappUrl = `https://wa.me/923083500829?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, '_blank');
-    }
-  </script>
-
-</body>
-</html>
-
+      <div class="card">
+        <h3>1. English Alphabet</h3>
+        <ul>
+          <li>A–Z Letters</li>
+          <li>Capital & Small Letters</li>
+          <li>Vowels (A, E, I, O, U)</li>
+          <li>Consonants</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>2. Parts of Speech</h3>
+        <ul>
+          <li>Noun, Pronoun, Verb</li>
+          <li>Adjective, Adverb</li>
+          <li>Preposition, Conjunction</li>
+          <li>Interjection</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>3. Vocabulary</h3>
+        <ul>
+          <li>Daily Use Words</li>
+          <li>Family, School, Office</li>
+          <li>Food, Fruits & Vegetables</li>
+          <li>Animals, Colors, Body Parts</li>
+          <li>Clothes, Weather, Transport</li>
+          <li>Jobs, Countries, Numbers</li>
+          <li>Days, Months, Time & Dates</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>4. Grammar</h3>
+        <ul>
+          <li>Articles, Singular & Plural</li>
+          <li>Countable & Uncountable</li>
+          <li>Gender, Possessives</li>
+          <li>Subject & Predicate</li>
+          <li>Subject-Verb Agreement</li>
+          <li>Helping, Main & Modal Verbs</li>
+          <li>Tenses (12), Active/Passive</li>
+          <li>Direct/Indirect Speech</li>
+          <li>Conditionals, Question Tags</li>
+          <li>Relative Clauses, Comparisons</li>
+          <li>Gerunds & Infinitives</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>5. Tenses (12)</h3>
+        <ul>
+          <li>Present, Past, Future (Simple, Continuous, Perfect, Perfect Continuous)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>6. Sentence Structure</h3>
+        <ul>
+          <li>SVO Pattern</li>
+          <li>Positive, Negative, Interrogative</li>
+          <li>WH & Yes/No Questions</li>
+          <li>Short Answers</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>7. Punctuation</h3>
+        <ul>
+          <li>Full Stop, Comma, Question Mark</li>
+          <li>Exclamation, Colon, Semicolon</li>
+          <li>Apostrophe, Quotation Marks</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>8. Reading
 
