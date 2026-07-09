@@ -1,1492 +1,240 @@
 <!DOCTYPE html>
-<html lang="ur" dir="rtl">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oxford English Academy | Premium Language Learning</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn English Fast</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #0f2027;
+      color: #fff;
+      overflow-x: hidden;
+    }
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Ultra-Readable High-Contrast Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    /* Particle Canvas */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0;
+      left: 0;
+    }
 
-    <style>
-        :root {
-            /* High-contrast cyber-neon palette */
-            --brand-primary: #00f0ff;    /* Glowing Electric Cyan */
-            --brand-secondary: #00ffaa;  /* Bright Luminous Mint */
-            --brand-accent: #ffb700;     /* Vivid Neon Gold */
-            --brand-pink: #ff007f;       /* Electric Pink */
-            --bg-dark: #030712;          /* Space Obsidian Black */
-            --card-bg: rgba(255, 255, 255, 0.02);
-            --card-border: rgba(255, 255, 255, 0.08);
-        }
+    /* Typing Animation */
+    .typing {
+      font-size: 2.5em;
+      background: linear-gradient(90deg, #00f2fe, #4facfe, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      border-right: 3px solid #00f2fe;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 5s steps(30, end) forwards, blink 0.7s infinite;
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
 
-        body {
-            background-color: var(--bg-dark);
-            color: #f8fafc; /* Crystal Off-White */
-            font-family: 'Plus Jakarta Sans', 'Noto Nastaliq Urdu', sans-serif;
-            overflow-x: hidden;
-            letter-spacing: 0.04em;
-        }
+    header {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    header img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+      margin-bottom: 20px;
+    }
+    header p {
+      font-size: 1.2em;
+      opacity: 0.8;
+      margin-top: 20px;
+    }
 
-        /* Spacious & Elegant Urdu Typography Rules optimized for both mobile and desktop */
-        .urdu-text {
-            font-family: 'Noto Nastaliq Urdu', sans-serif;
-            line-height: 2.5 !important; /* Spacious height to completely prevent overlaps */
-            letter-spacing: 0.03em !important;
-            word-spacing: 0.12em !important; /* Expanded word spacing for maximum visual clarity */
-        }
+    nav {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      margin: 0 20px;
+      text-decoration: none;
+      color: #00f2fe;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #4facfe;
+    }
 
-        @media (min-width: 768px) {
-            .urdu-text {
-                line-height: 3.0 !important;
-                word-spacing: 0.16em !important;
-            }
-        }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #00f2fe;
+    }
 
-        /* --- PULSATING NEON LIGHTING ANIMATIONS --- */
-        @keyframes neonPulseCyan {
-            0%, 100% {
-                text-shadow: 0 0 8px rgba(0, 240, 255, 0.6), 0 0 20px rgba(0, 240, 255, 0.4);
-                color: #00f0ff;
-            }
-            50% {
-                text-shadow: 0 0 15px rgba(0, 240, 255, 0.95), 0 0 35px rgba(0, 240, 255, 0.8);
-                color: #ffffff;
-            }
-        }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.5);
+    }
 
-        @keyframes neonPulseGold {
-            0%, 100% {
-                text-shadow: 0 0 8px rgba(255, 183, 0, 0.6), 0 0 20px rgba(255, 183, 0, 0.4);
-                color: #ffb700;
-            }
-            50% {
-                text-shadow: 0 0 15px rgba(255, 183, 0, 0.95), 0 0 30px rgba(255, 183, 0, 0.7);
-                color: #ffffff;
-            }
-        }
+    form {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(15px);
+      padding: 30px;
+      border-radius: 15px;
+    }
+    input, button {
+      width: 100%;
+      padding: 14px;
+      margin: 12px 0;
+      border-radius: 10px;
+      border: none;
+      font-size: 1em;
+    }
+    input {
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+    }
+    button {
+      background: linear-gradient(135deg, #00f2fe, #4facfe);
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: linear-gradient(135deg, #764ba2, #00f2fe);
+    }
 
-        @keyframes neonPulsePink {
-            0%, 100% {
-                text-shadow: 0 0 8px rgba(255, 0, 127, 0.6), 0 0 20px rgba(255, 0, 127, 0.4);
-                color: #ff007f;
-            }
-            50% {
-                text-shadow: 0 0 15px rgba(255, 0, 127, 0.95), 0 0 35px rgba(255, 0, 127, 0.8);
-                color: #ffffff;
-            }
-        }
-
-        /* Smooth shifting rainbow glow for absolute visual delight */
-        @keyframes textGlowShift {
-            0% {
-                color: #00f0ff;
-                text-shadow: 0 0 12px rgba(0, 240, 255, 0.7), 0 0 25px rgba(0, 240, 255, 0.4);
-            }
-            33% {
-                color: #ffb700;
-                text-shadow: 0 0 12px rgba(255, 183, 0, 0.7), 0 0 25px rgba(255, 183, 0, 0.4);
-            }
-            66% {
-                color: #ff007f;
-                text-shadow: 0 0 12px rgba(255, 0, 127, 0.7), 0 0 25px rgba(255, 0, 127, 0.4);
-            }
-            100% {
-                color: #00f0ff;
-                text-shadow: 0 0 12px rgba(0, 240, 255, 0.7), 0 0 25px rgba(0, 240, 255, 0.4);
-            }
-        }
-
-        /* Premium entrance sliding header animation */
-        @keyframes slideDownHeader {
-            0% {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .animate-slide-down-header {
-            animation: slideDownHeader 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        /* Neon Glowing Classes */
-        .neon-glow-cyan {
-            animation: neonPulseCyan 3s infinite ease-in-out;
-        }
-        .neon-glow-gold {
-            animation: neonPulseGold 3.5s infinite ease-in-out;
-        }
-        .neon-glow-pink {
-            animation: neonPulsePink 4s infinite ease-in-out;
-        }
-        .neon-glow-flow {
-            animation: textGlowShift 8s infinite ease-in-out;
-        }
-
-        /* Ambient Glowing Background Orbs */
-        .glow-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(140px);
-            opacity: 0.12;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        /* Premium Ultra-Glassmorphism Card with Expanded Spacing */
-        .glass-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--card-border);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .glass-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.04);
-            border-color: rgba(0, 240, 255, 0.3);
-            box-shadow: 0 30px 60px rgba(0, 240, 255, 0.15);
-        }
-
-        /* Floating elements animation */
-        .floating-element {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* Option Active Visual States for quizzes/forms with brilliant cyan lighting */
-        .option-active {
-            border-color: var(--brand-primary) !important;
-            background: rgba(0, 240, 255, 0.1) !important;
-            color: #ffffff !important;
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
-        }
-
-        /* Custom High-Contrast Input Fields */
-        .premium-input {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1.5px solid rgba(255, 255, 255, 0.12);
-            letter-spacing: 0.05em;
-            transition: all 0.3s ease;
-        }
-
-        .premium-input:focus {
-            background: rgba(0, 0, 0, 0.8);
-            border-color: var(--brand-primary);
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
-            outline: none;
-        }
-
-        /* Clean High-Contrast Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-dark);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1e293b;
-            border-radius: 8px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--brand-primary);
-        }
-
-        /* Accordion transition logic */
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
-        }
-        .accordion-active .accordion-content {
-            max-height: 320px;
-            padding-top: 1.25rem;
-        }
-        .accordion-active .accordion-icon {
-            transform: rotate(180deg);
-            color: var(--brand-primary);
-        }
-
-        /* Custom Chatbot Typing Effect Dots */
-        .typing-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--brand-primary);
-            border-radius: 50%;
-            animation: typingBounce 1s infinite alternate;
-        }
-        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
-        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-
-        @keyframes typingBounce {
-            from { transform: translateY(0); }
-            to { transform: translateY(-6px); }
-        }
-    </style>
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 25px;
+      font-size: 0.9em;
+    }
+  </style>
 </head>
-<body class="antialiased selection:bg-cyan-500 selection:text-black">
+<body>
 
-    <!-- HIGH-CONTRAST AMBIENT LIGHTS -->
-    <div class="glow-orb top-20 left-10 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-cyan-600/10"></div>
-    <div class="glow-orb top-[35%] right-10 w-[320px] md:w-[650px] h-[320px] md:h-[650px] bg-purple-600/10"></div>
-    <div class="glow-orb bottom-20 left-[15%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-emerald-600/10"></div>
+  <!-- Particle Background -->
+  <div id="particles-js"></div>
 
-    <!-- ULTRA-PREMIUM NAVIGATION HEADER - PERFECTLY BALANCED FOR MOBILE AND DESKTOP -->
-    <header class="fixed top-0 left-0 right-0 z-40 px-2 sm:px-4 md:px-6 py-2 sm:py-4 md:py-6 animate-slide-down-header">
-        <div class="max-w-7xl mx-auto glass-card rounded-xl sm:rounded-2xl md:rounded-3xl px-3 sm:px-6 md:px-10 py-2 sm:py-4 md:py-6 flex items-center justify-between backdrop-blur-xl border border-white/10 shadow-2xl">
-            <!-- Brand Logo with animated glow -->
-            <div class="flex items-center gap-1.5 sm:gap-3">
-                <span class="p-1 sm:p-1.5 rounded-lg sm:rounded-2xl bg-gradient-to-r from-cyan-500/20 to-purple-500/20 flex items-center justify-center shadow-xl shadow-cyan-500/10 border border-cyan-400/30 shrink-0">
-                    <img src="https://i.ibb.co/Vcmq5RL0/file-00000000330071fa8b3767db78155c3f.png" 
-                         alt="Oxford English Academy Logo" 
-                         class="h-7 w-auto min-[360px]:h-8 min-[400px]:h-10 sm:h-12 md:h-16 object-contain rounded-md filter drop-shadow-[0_0_8px_rgba(0,240,255,0.5)]"
-                         onerror="this.src='https://placehold.co/80x80/030712/00f0ff?text=OEA'">
-                </span>
-                <div class="flex flex-col gap-0">
-                    <span class="text-[9px] min-[360px]:text-[11px] min-[400px]:text-xs sm:text-lg md:text-2xl font-black neon-glow-cyan leading-none tracking-tight">OXFORD ENGLISH</span>
-                    <span class="text-[7px] min-[360px]:text-[8px] min-[400px]:text-[9px] sm:text-xs text-gray-400 tracking-widest uppercase font-bold leading-none mt-0.5 sm:mt-1">ACADEMY</span>
-                </div>
-            </div>
+  <header>
+    <!-- Oxford Image -->
+    <img src="https://i.ibb.co/j2P2wQb/university-of-oxford1.webp" alt="University of Oxford">
+    
+    <!-- Typing Headline -->
+    <h1 class="typing">Master English in One Month!</h1>
+    <p>Grammar • Vocabulary • Tenses • Speech • Synonyms & Antonyms</p>
+  </header>
 
-            <!-- Nav Links (Desktop Only) -->
-            <nav class="hidden lg:flex items-center gap-6 xl:gap-10 text-sm font-bold text-gray-300 tracking-wider">
-                <a href="#courses" class="hover:text-cyan-400 transition-all">ہمارے کورسز</a>
-                <a href="#practice-zone" class="hover:text-cyan-400 transition-all flex items-center gap-2">
-                    پریکٹس زون <span class="px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-400 text-[10px] font-black">مفت گیم</span>
-                </a>
-                <a href="#fee-calculator" class="hover:text-cyan-400 transition-all">فیس کیلکولیٹر</a>
-                <a href="#test-section" class="hover:text-cyan-400 transition-all">لیول ٹیسٹ</a>
-                <a href="#admission-form" class="hover:text-cyan-400 transition-all">آن لائن داخلہ</a>
-            </nav>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#features">Features</a>
+    <a href="#register">Register</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-            <!-- Actions -->
-            <div class="flex items-center gap-1.5 sm:gap-4">
-                <a href="#test-section" class="hidden sm:inline-flex items-center gap-2 bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 hover:bg-cyan-500/25 text-xs px-3 py-2 rounded-xl font-black transition-all">
-                    <span>لیول ٹیسٹ</span>
-                    <span class="animate-pulse">⚡</span>
-                </a>
-                <a href="#admission-form" class="bg-gradient-to-r from-cyan-400 to-purple-500 hover:from-cyan-500 hover:to-purple-600 text-black font-black px-2.5 sm:px-6 md:px-8 py-1.5 sm:py-3.5 rounded-lg sm:rounded-2xl text-[10px] sm:text-sm transition-all shadow-lg shadow-cyan-500/20 shrink-0">
-                    داخلہ فارم
-                </a>
-            </div>
-        </div>
-    </header>
+  <section id="about">
+    <h2>About Us</h2>
+    <p style="text-align:center;">
+      We provide a simple, clear, and effective way to learn English. Our lessons are structured to make learning easy and enjoyable for students of all levels.
+    </p>
+  </section>
 
-    <!-- MAJESTIC HERO SECTION -->
-    <section class="relative min-h-screen flex items-center justify-center pt-24 sm:pt-36 md:pt-52 pb-16 md:pb-36 px-4 md:px-6 overflow-hidden">
-        <div class="max-w-6xl mx-auto text-center relative z-10 space-y-8 md:space-y-16">
-            <!-- Spacious dynamic welcome tag -->
-            <div class="inline-flex items-center gap-3 px-4 sm:px-8 py-2.5 sm:py-4 rounded-full bg-white/5 border border-white/10 text-xs font-semibold tracking-wider text-cyan-300 backdrop-blur-md floating-element">
-                <span class="flex h-2 w-2 relative">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
-                </span>
-                <span class="urdu-text text-[10px] sm:text-sm font-bold">نیا سیشن شروع: اب انگریزی بولیں بغیر کسی پریشانی کے! ✨</span>
-            </div>
-
-            <!-- Majestic Main Heading with pulsing text glow -->
-            <h1 class="text-3xl sm:text-6xl md:text-8xl lg:text-9xl font-black tracking-wider leading-none text-white space-y-2 md:space-y-4">
-                انگلش بولیں <br class="hidden sm:block">
-                <span class="neon-glow-flow block pt-2 sm:pt-0">اچو تہ انگریزی سکھون</span>
-            </h1>
-
-            <!-- Ultra-Friendly Spacious Subtitle -->
-            <p class="urdu-text text-sm sm:text-xl lg:text-3xl text-gray-200 max-w-5xl mx-auto leading-relaxed md:leading-loose px-2">
-                کیا آپ انگریزی سیکھنا چاہتے ہیں؟ ہماری ہائی ٹیک اکیڈمی اب آپ کے لیے لائی ہے <span class="neon-glow-cyan font-black underline decoration-cyan-400 underline-offset-4 md:underline-offset-8">100% لائیو سیشنز</span>، روزمرہ بات چیت کی لائیو مشق، اور انتہائی تجربہ کار اساتذہ۔
-                <span class="block text-xs sm:text-lg lg:text-xl text-gray-400 mt-4 md:mt-8 font-normal">صرف 1,000 PKR ماہانہ یا 2,000 PKR مکمل کورس فیس میں بہترین معیاری تعلیم حاصل کریں۔ ابھی اپنا مفت ٹیسٹ کریں!</span>
-            </p>
-
-            <!-- Spacious Friendly CTA Panel with Interactive Tags -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-8 px-2 max-w-4xl mx-auto w-full">
-                <a href="https://wa.me/923083500829" target="_blank" 
-                   class="w-full sm:w-auto bg-[#25D366] hover:bg-[#20ba5a] text-black font-extrabold px-6 sm:px-12 py-3.5 sm:py-6 rounded-xl sm:rounded-3xl text-sm sm:text-lg inline-flex items-center justify-center gap-3 transition-all transform hover:scale-[1.03] shadow-2xl shadow-green-950/40">
-                    <svg class="w-5 h-5 sm:w-8 sm:h-8 fill-current text-black" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.528 1.977 14.053 1.048 11.43 1.048c-5.439 0-9.865 4.371-9.869 9.8a9.65 9.65 0 0 0 1.485 5.008l-.319 1.162-.777 2.833 2.9-.76 1.15-.303zm12.515-4.808c-.354-.177-2.095-1.033-2.42-1.151-.325-.119-.562-.177-.797.177-.236.354-.913 1.151-1.121 1.386-.206.236-.413.265-.767.088-2.607-1.111-4.223-2.613-5.267-4.417-.275-.473.275-.44.788-1.464.088-.177.044-.332-.022-.465-.066-.133-.562-1.353-.77-1.853-.204-.491-.41-.424-.562-.432-.144-.007-.31-.008-.477-.008s-.438.063-.667.312c-.23.25-.875.855-.875 2.086 0 1.231.896 2.42 1.017 2.584.121.163 1.763 2.693 4.27 3.778 1.457.63 2.333.826 3.125.751.884-.084 2.096-.855 2.391-1.681.295-.827.295-1.534.207-1.681-.088-.146-.325-.235-.679-.413z"/></svg>
-                    <span class="urdu-text text-sm sm:text-lg font-black">مفت مشورہ بذریعہ واٹس ایپ</span>
-                </a>
-                <a href="#practice-zone" class="w-full sm:w-auto bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold px-6 sm:px-12 py-3.5 sm:py-6 rounded-xl sm:rounded-3xl text-xs sm:text-xl transition-all text-center urdu-text">
-                    مفت انگلش گیم کھیلیں 🎮
-                </a>
-            </div>
-
-            <!-- Quality Badges with icons and spacious margins -->
-            <div class="mt-8 sm:mt-20 pt-4 sm:pt-10 flex flex-wrap justify-center gap-3 sm:gap-8 text-[10px] sm:text-sm text-gray-300 font-bold tracking-wider">
-                <span class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/5 border border-white/10"><span class="text-cyan-400">🏆</span> Certified Academy</span>
-                <span class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/5 border border-white/10"><span class="text-emerald-400">👥</span> 5,000+ Students</span>
-                <span class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/5 border border-white/10"><span class="text-amber-400">🎓</span> Professional Mentors</span>
-                <span class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/5 border border-white/10"><span class="text-teal-400">💬</span> 24/7 Practice Club</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- METRICS DISPLAY WITH HOVER COUNT UP -->
-    <section class="py-8 sm:py-20 max-w-6xl mx-auto px-4 md:px-6 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-10 text-center relative z-10">
-        <div class="glass-card p-4 sm:p-10 rounded-xl sm:rounded-3xl border border-white/10">
-            <div class="text-2xl sm:text-6xl font-black text-cyan-400 mb-1 sm:mb-4 tracking-wider neon-glow-cyan" id="val-students">0</div>
-            <div class="urdu-text text-[10px] sm:text-base text-gray-300 font-bold">کامیاب ترین طلبہ</div>
-        </div>
-        <div class="glass-card p-4 sm:p-10 rounded-xl sm:rounded-3xl border border-white/10">
-            <div class="text-2xl sm:text-6xl font-black text-emerald-400 mb-1 sm:mb-4 tracking-wider" id="val-satisfaction">0</div>
-            <div class="urdu-text text-[10px] sm:text-base text-gray-300 font-bold">مطمئن شرح فیڈ بیک</div>
-        </div>
-        <div class="glass-card p-4 sm:p-10 rounded-xl sm:rounded-3xl border border-white/10">
-            <div class="text-2xl sm:text-6xl font-black text-amber-400 mb-1 sm:mb-4 tracking-wider neon-glow-gold" id="val-ielts">0</div>
-            <div class="urdu-text text-[10px] sm:text-base text-gray-300 font-bold">IELTS اوسط اسکور</div>
-        </div>
-        <div class="glass-card p-4 sm:p-10 rounded-xl sm:rounded-3xl border border-white/10">
-            <div class="text-2xl sm:text-6xl font-black text-purple-400 mb-1 sm:mb-4 tracking-wider neon-glow-pink">24/7</div>
-            <div class="urdu-text text-[10px] sm:text-base text-gray-300 font-bold">لائیو کلب اسپیکنگ</div>
-        </div>
-    </section>
-
-    <!-- INTERACTIVE GRAMMAR GAME CHALLENGE -->
-    <section id="practice-zone" class="py-12 sm:py-36 max-w-5xl mx-auto px-4 md:px-6 relative z-10">
-        <div class="text-center mb-8 sm:mb-20 space-y-3 sm:space-y-4">
-            <span class="px-3.5 py-1.5 rounded-full bg-cyan-500/15 text-cyan-300 text-xs font-bold tracking-widest uppercase">پریکٹس زون</span>
-            <h2 class="urdu-text text-2xl sm:text-6xl font-black text-white">ایک چھوٹا سا <span class="neon-glow-flow">انگلش چیلنج</span> کھیلیں!</h2>
-            <p class="urdu-text text-xs sm:text-lg text-gray-300">نیچے دیے گئے جملے میں موجود غلطی کو تلاش کریں۔ کیا آپ درست جواب دے سکتے ہیں؟</p>
-        </div>
-
-        <div class="glass-card p-5 sm:p-12 rounded-2xl sm:rounded-3xl relative overflow-hidden border border-white/10">
-            <div id="game-welcome" class="text-center py-4 sm:py-10 space-y-4 sm:space-y-6">
-                <div class="text-4xl sm:text-7xl mb-2 animate-bounce">🏆</div>
-                <h3 class="urdu-text text-xl sm:text-3xl font-bold text-white">گرامر اور اسپیکنگ پریکٹس</h3>
-                <p class="urdu-text text-xs sm:text-base text-gray-300 max-w-xl mx-auto">صرف 4 آسان سوالات کے جوابات دے کر اپنے لیے فری ڈیمو کی رکنیت حاصل کریں!</p>
-                <button onclick="startGame()" class="urdu-text px-6 sm:px-12 py-3 sm:py-6 rounded-xl sm:rounded-2xl bg-gradient-to-r from-cyan-400 to-purple-500 hover:from-cyan-500 hover:to-purple-600 text-black font-black transition text-sm sm:text-lg shadow-2xl shadow-cyan-500/20 cursor-pointer w-full sm:w-auto">شروع کریں</button>
-            </div>
-
-            <div id="game-play" class="hidden space-y-4 sm:space-y-10">
-                <div class="flex items-center justify-between">
-                    <span id="game-progress-text" class="urdu-text text-xs sm:text-base text-cyan-300 font-bold">سوال 1/4</span>
-                    <span id="game-score-badge" class="px-3 py-1.5 rounded-full bg-cyan-500/15 text-cyan-400 text-xs sm:text-sm font-black">اسکور: 00</span>
-                </div>
-                <div class="h-2 w-full bg-white/5 rounded-full">
-                    <div id="game-progress-bar" class="h-full bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full transition-all duration-300" style="width: 25%;"></div>
-                </div>
-
-                <div class="space-y-1.5 sm:space-y-4">
-                    <span class="urdu-text text-[10px] sm:text-sm font-bold text-amber-400 uppercase tracking-widest block">درست جملہ منتخب کریں:</span>
-                    <h4 id="game-question-title" class="text-sm sm:text-3xl font-bold text-white tracking-wide">Which sentence is correct?</h4>
-                </div>
-
-                <div id="game-options" class="grid grid-cols-1 gap-3 sm:gap-6">
-                    <!-- Dynamic Elements Filled By Javascript -->
-                </div>
-
-                <!-- Visual feedback block -->
-                <div id="game-feedback" class="hidden p-3.5 sm:p-6 rounded-xl sm:rounded-2xl text-center urdu-text font-black text-xs sm:text-lg">
-                    <!-- Dynamic Feedback -->
-                </div>
-            </div>
-
-            <div id="game-result" class="hidden text-center py-4 sm:py-10 space-y-4 sm:space-y-8">
-                <div class="text-4xl sm:text-8xl mb-2" id="game-result-emoji">🎉</div>
-                <h3 class="urdu-text text-xl sm:text-4xl font-black text-white">بہت شاندار!</h3>
-                <p class="urdu-text text-gray-200 text-xs sm:text-xl" id="game-result-text">آپ نے 4 میں سے 4 اسکور حاصل کیا ہے۔</p>
-                
-                <div class="p-4 sm:p-10 bg-cyan-500/5 border border-cyan-500/20 rounded-xl sm:rounded-3xl max-w-2xl mx-auto space-y-2 sm:space-y-4">
-                    <h4 class="urdu-text font-black text-cyan-300 text-sm sm:text-2xl">🎁 اکیڈمی کا تحفہ آپ کے لیے</h4>
-                    <p class="urdu-text text-xs sm:text-base text-gray-300 leading-relaxed">کھیل مکمل کرنے کی خوشی میں آپ کو ہماری جانب سے پہلے مہینے کی فیس میں <span class="text-white font-extrabold underline decoration-cyan-400 underline-offset-4">فری ڈیمو کلاسز</span> دی جا رہی ہیں۔ نیچے دیے گئے بٹن پر کلک کریں اور واٹس ایپ پر رابطہ کریں۔</p>
-                </div>
-
-                <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-8 w-full">
-                    <button onclick="restartGame()" class="urdu-text bg-white/5 hover:bg-white/10 text-white font-bold px-6 py-3 rounded-xl transition border border-white/10 text-xs sm:text-base w-full sm:w-auto">دوبارہ کھیلیں</button>
-                    <a href="https://wa.me/923083500829?text=Oxford_English_Game_Completed_Promo" target="_blank" class="urdu-text bg-gradient-to-r from-cyan-400 to-purple-500 text-black font-extrabold px-6 py-3 rounded-xl transition text-xs sm:text-base shadow-2xl shadow-cyan-500/25 w-full sm:w-auto text-center">فری آفر حاصل کریں</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- INTERACTIVE FLOATING AI CHAT ASSISTANT (ZARA) -->
-    <div class="fixed bottom-4 right-4 sm:bottom-10 sm:right-10 z-50">
-        <!-- Trigger Bubble with enlarged size and shadow -->
-        <button onclick="toggleChatWindow()" class="relative flex items-center justify-center w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500 text-black shadow-2xl shadow-cyan-400/30 hover:scale-105 active:scale-95 transition-all border border-cyan-300/30">
-            <span class="absolute top-0 right-0 h-3.5 w-3.5 bg-emerald-500 border-2 border-slate-950 rounded-full animate-pulse"></span>
-            <svg class="w-6 h-6 sm:w-10 sm:h-10 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-            </svg>
-        </button>
-
-        <!-- Chat Window responsive sizing for screen widths -->
-        <div id="chat-window" class="fixed bottom-20 sm:bottom-32 right-3 sm:right-10 w-[calc(100vw-24px)] sm:w-[440px] h-[450px] sm:h-[550px] glass-card rounded-2xl border border-white/20 flex flex-col shadow-2xl overflow-hidden hidden transition-all duration-300 transform scale-95 origin-bottom-right">
-            <!-- Header -->
-            <div class="p-3.5 sm:p-6 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border-b border-white/10 flex items-center justify-between">
-                <div class="flex items-center gap-2.5 sm:gap-4">
-                    <div class="relative">
-                        <span class="absolute bottom-0 right-0 h-2 w-2 sm:h-2.5 sm:w-2.5 bg-emerald-500 rounded-full border border-slate-900"></span>
-                        <div class="w-8 h-8 sm:w-14 sm:h-14 rounded-full bg-cyan-400/25 text-cyan-300 flex items-center justify-center font-bold text-sm sm:text-xl border border-cyan-400/30">Z</div>
-                    </div>
-                    <div>
-                        <h4 class="urdu-text text-xs sm:text-base font-black text-white leading-none">کونسلر زارا (Counselor Zara)</h4>
-                        <span class="urdu-text text-[9px] sm:text-xs text-gray-400 flex items-center gap-1.5 mt-0.5 sm:mt-1">
-                            <span class="h-1 w-1 bg-emerald-400 rounded-full animate-ping"></span> آن لائن مدد کے لیے تیار
-                        </span>
-                    </div>
-                </div>
-                <button onclick="toggleChatWindow()" class="text-gray-400 hover:text-white transition-all p-1 sm:p-2 bg-white/5 rounded-full border border-white/10">
-                    <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
-
-            <!-- Messages Area with spacious layout -->
-            <div id="chat-messages" class="flex-1 p-3.5 sm:p-6 overflow-y-auto space-y-3 sm:space-y-6">
-                <div class="flex items-start gap-2 sm:gap-3">
-                    <div class="w-7 h-7 rounded-full bg-cyan-400/20 text-cyan-300 flex items-center justify-center font-bold text-[10px] shrink-0">Z</div>
-                    <div class="urdu-text bg-white/5 border border-white/10 rounded-xl rounded-tr-none p-2.5 sm:p-5 text-[10px] sm:text-sm text-gray-100 max-w-[85%] leading-relaxed">
-                        السلام علیکم! میں آکسفورڈ اکیڈمی کی ورچوئل کونسلر زارا ہوں۔ میں آپ کو فیس، کورسز اور کلاس ٹائمنگ کی معلومات فراہم کر سکتی ہوں۔ نیچے دیے گئے بٹنز سے انتخاب کریں۔ 👇
-                    </div>
-                </div>
-            </div>
-
-            <!-- Predefined Chip Buttons with touch sizes -->
-            <div class="p-3 bg-black/50 border-t border-white/10 space-y-2">
-                <div class="flex flex-wrap gap-1.5 justify-end">
-                    <button onclick="sendQuickMessage('courses_info')" class="urdu-text text-[9px] sm:text-xs bg-cyan-500/10 hover:bg-cyan-500/25 border border-cyan-500/30 text-cyan-300 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full transition font-black">🎓 کورسز کی تفصیل؟</button>
-                    <button onclick="sendQuickMessage('fee_structure')" class="urdu-text text-[9px] sm:text-xs bg-purple-500/10 hover:bg-purple-500/25 border border-purple-500/30 text-purple-300 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full transition font-black">💵 فیس کتنی ہے؟</button>
-                    <button onclick="sendQuickMessage('class_timing')" class="urdu-text text-[9px] sm:text-xs bg-amber-500/10 hover:bg-amber-500/25 border border-amber-500/30 text-amber-300 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full transition font-black">🕒 کلاس کا ٹائم؟</button>
-                    <button onclick="sendQuickMessage('demo_class')" class="urdu-text text-[9px] sm:text-xs bg-teal-500/10 hover:bg-teal-500/25 border border-teal-500/30 text-teal-300 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full transition font-black">🎁 فری ڈیمو کلاسز؟</button>
-                </div>
-            </div>
-        </div>
+  <section id="features">
+    <h2>Features</h2>
+    <div class="features">
+      <div class="card">📘 Grammar Lessons</div>
+      <div class="card">⏳ Tenses Practice</div>
+      <div class="card">🗣️ Direct & Indirect Speech</div>
+      <div class="card">🔤 Vocabulary Builder</div>
+      <div class="card">🔄 Synonyms & Antonyms</div>
     </div>
+  </section>
+
+  <section id="register">
+    <h2>Student Registration</h2>
+    <form onsubmit="sendWhatsApp(event)">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email Address" required>
+      <input type="tel" id="phone" placeholder="Phone Number" required>
+      <input type="number" id="age" placeholder="Age" required>
+      <input type="text" id="time" placeholder="Preferred Learning Time" required>
+      <button type="submit">Register Now</button>
+    </form>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p style="text-align:center;">📞 WhatsApp: 03083500829</p>
+    <p style="text-align:center;">📧 Email: info@learnenglishfast.com</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Learn English Fast. All rights reserved.</p>
+  </footer>
+
+  <!-- Particle.js Script -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80 },
+        "size": { "value": 3 },
+        "move": { "speed": 2 },
+        "line_linked": { "enable": true, "color": "#00f2fe" },
+        "color": { "value": "#ffffff" }
+      }
+    });
+
+    function sendWhatsApp(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const age = document.getElementById('age').value;
+      const time = document.getElementById('time').value;
+
+      const message = `New Registration:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nAge: ${age}\nPreferred Time: ${time}`;
+      const whatsappUrl = `https://wa.me/923083500829?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+  </script>
 
-    <!-- INTERACTIVE FEE CALCULATOR SECTION -->
-    <section id="fee-calculator" class="py-12 sm:py-36 max-w-6xl mx-auto px-4 md:px-6 relative z-10">
-        <div class="text-center mb-8 sm:mb-20 space-y-3 sm:space-y-4">
-            <span class="px-3.5 py-1.5 rounded-full bg-purple-500/15 text-purple-300 text-xs font-bold tracking-widest uppercase">انتہائی مناسب فیس پلان</span>
-            <h2 class="urdu-text text-2xl sm:text-6xl font-black text-white">انٹرایکٹو <span class="neon-glow-flow">فیس کیلکولیٹر</span></h2>
-            <p class="urdu-text text-xs sm:text-lg text-gray-300">کورس اور فیس پلان منتخب کریں، اور لائیو فیس سمیلیشن حاصل کریں!</p>
-        </div>
-
-        <div class="grid md:grid-cols-12 gap-6 md:gap-10 items-stretch">
-            <!-- Settings Panel -->
-            <div class="md:col-span-7 glass-card p-5 sm:p-12 rounded-2xl sm:rounded-3xl border border-white/10 flex flex-col justify-between space-y-6 sm:space-y-10">
-                <div class="space-y-6 sm:space-y-10">
-                    <!-- Course Option selection -->
-                    <div class="space-y-2.5 sm:space-y-4">
-                        <label class="urdu-text block text-xs sm:text-base uppercase tracking-widest text-amber-400 font-black">1۔ اپنا کورس منتخب کریں:</label>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                            <button onclick="selectCalCourse('spoken')" id="cal-spoken" class="option-active p-4 rounded-xl sm:rounded-2xl premium-input text-gray-100 font-extrabold transition text-xs sm:text-sm text-center flex flex-col items-center gap-2 cursor-pointer w-full">
-                                <span class="text-2xl sm:text-3xl">🗣️</span>
-                                <span class="urdu-text">Spoken English</span>
-                            </button>
-                            <button onclick="selectCalCourse('ielts')" id="cal-ielts" class="p-4 rounded-xl sm:rounded-2xl premium-input text-gray-100 font-extrabold transition text-xs sm:text-sm text-center flex flex-col items-center gap-2 cursor-pointer w-full">
-                                <span class="text-2xl sm:text-3xl">🎓</span>
-                                <span class="urdu-text">IELTS Expert</span>
-                            </button>
-                            <button onclick="selectCalCourse('grammar')" id="cal-grammar" class="p-4 rounded-xl sm:rounded-2xl premium-input text-gray-100 font-extrabold transition text-xs sm:text-sm text-center flex flex-col items-center gap-2 cursor-pointer w-full">
-                                <span class="text-2xl sm:text-3xl">✍️</span>
-                                <span class="urdu-text">Grammar Expert</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Payment Plan selection -->
-                    <div class="space-y-2.5 sm:space-y-4">
-                        <label class="urdu-text block text-xs sm:text-base uppercase tracking-widest text-amber-400 font-black">2۔ دورانیہ اور پلان منتخب کریں:</label>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            <button onclick="selectCalPlan('monthly', 1000)" id="cal-monthly" class="option-active p-4 rounded-xl sm:rounded-2xl premium-input text-gray-100 font-bold transition text-xs sm:text-base text-center urdu-text cursor-pointer w-full">
-                                ماہانہ فیس پلان (1,000 PKR)
-                            </button>
-                            <button onclick="selectCalPlan('full', 2000)" id="cal-full" class="p-4 rounded-xl sm:rounded-2xl premium-input text-gray-100 font-bold transition text-xs sm:text-base text-center urdu-text cursor-pointer w-full">
-                                مکمل کورس فیس (2,000 PKR)
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Class Format selection -->
-                    <div class="space-y-2.5 sm:space-y-4">
-                        <label class="urdu-text block text-xs sm:text-base uppercase tracking-widest text-amber-400 font-black">3۔ کلاس کا طریقہ کار:</label>
-                        <div class="grid grid-cols-2 gap-3">
-                            <button onclick="selectCalFormat('online')" id="cal-online" class="option-active p-4 rounded-xl sm:rounded-2xl premium-input text-gray-100 font-bold transition text-xs sm:text-base text-center urdu-text cursor-pointer w-full">
-                                💻 آن لائن کلاس
-                            </button>
-                            <button onclick="selectCalFormat('physical')" id="cal-physical" class="p-4 rounded-xl sm:rounded-2xl premium-input text-gray-100 font-bold transition text-xs sm:text-base text-center urdu-text cursor-pointer w-full">
-                                🏫 فزیکل کلاس
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Dynamic Output Panel with premium contrast -->
-            <div class="md:col-span-5 bg-gradient-to-br from-cyan-950 to-slate-950 rounded-2xl sm:rounded-3xl p-5 sm:p-12 border-2 border-cyan-400/30 text-white flex flex-col justify-between shadow-2xl space-y-6 sm:space-y-8">
-                <div class="space-y-3 sm:space-y-6">
-                    <span class="urdu-text px-3 py-1.5 rounded-full bg-cyan-400/20 text-cyan-300 text-[10px] sm:text-xs font-black uppercase inline-block">پیکیج سمری</span>
-                    <h3 class="text-xl sm:text-4xl font-black tracking-wider neon-glow-cyan" id="sum-course-title">Spoken English</h3>
-                    <p class="urdu-text text-xs sm:text-base text-gray-300" id="sum-course-desc">بغیر کسی جھجھک کے روانی سے انگریزی بولنا سیکھیں۔</p>
-
-                    <div class="mt-4 sm:mt-12 space-y-2.5 sm:space-y-5 border-t border-white/10 pt-4 sm:pt-10">
-                        <div class="flex items-center justify-between text-[10px] sm:text-base">
-                            <span class="urdu-text opacity-90">بنیادی فیس پلان:</span>
-                            <span class="font-bold text-white tracking-widest text-xs sm:text-lg" id="sum-base-fee">1,000 PKR</span>
-                        </div>
-                        <div class="flex items-center justify-between text-[10px] sm:text-base">
-                            <span class="urdu-text opacity-90">طریقہ کار (Format):</span>
-                            <span class="font-bold text-white tracking-widest text-xs sm:text-lg" id="sum-format-add">شامل فیس (+0)</span>
-                        </div>
-                        <div class="flex items-center justify-between text-[10px] sm:text-base">
-                            <span class="urdu-text opacity-90">اضافی ایڈمیشن چارجز:</span>
-                            <span class="font-bold text-cyan-400 tracking-widest text-xs sm:text-lg">0 PKR (فری)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="space-y-3 sm:space-y-6">
-                    <span class="urdu-text text-[10px] sm:text-xs opacity-90 uppercase block text-amber-400 font-black">ٹوٹل واجب الادا رقم:</span>
-                    <div class="text-3xl sm:text-6xl font-black tracking-wider flex items-baseline gap-1.5 text-cyan-400 neon-glow-cyan" id="sum-total-fee">
-                        1,000 <span class="text-xs sm:text-xl font-bold text-white">PKR</span>
-                    </div>
-                    <p class="urdu-text text-[9px] sm:text-xs text-gray-400 leading-relaxed">نوٹ: اس مناسب پیکیج میں تمام اسٹڈی مٹیریلز اور لائیو سرٹیفکیٹ کی آفیشل فیس شامل ہے۔</p>
-
-                    <a href="#admission-form" onclick="applyWithCal()" class="urdu-text w-full py-3.5 sm:py-6 rounded-xl sm:rounded-2xl bg-cyan-400 hover:bg-cyan-500 text-black font-black transition text-center block text-sm sm:text-lg shadow-2xl shadow-cyan-500/20 cursor-pointer">
-                        اس پیکیج پر اپلائی کریں 🚀
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- DETAILED COURSES SECTION -->
-    <section id="courses" class="py-12 sm:py-36 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
-        <div class="text-center mb-10 sm:mb-24 space-y-3 sm:space-y-4">
-            <h2 class="urdu-text text-2xl sm:text-6xl font-black tracking-widest text-white">
-                ہمارے <span class="neon-glow-flow">پریمیم کورسز</span>
-            </h2>
-            <p class="urdu-text text-xs sm:text-lg text-gray-300 max-w-3xl mx-auto">عالمی معیار کا نصاب جو آپ کی تعلیمی اور پیشہ ورانہ زندگی کو بدل دے گا۔ ہر کورس میں آن لائن اور فزیکل دونوں آپشنز موجود ہیں۔</p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-5 sm:gap-10">
-            <!-- Course Card 1 -->
-            <div class="glass-card p-5 sm:p-12 rounded-2xl sm:rounded-3xl flex flex-col justify-between relative overflow-hidden group border border-white/10">
-                <div class="absolute top-0 right-0 w-24 sm:w-36 h-24 sm:h-36 bg-cyan-500/10 rounded-full blur-3xl group-hover:bg-cyan-500/25 transition-all"></div>
-                <div class="space-y-4 sm:space-y-8">
-                    <div class="w-10 h-10 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 text-xl sm:text-3xl font-bold border border-cyan-500/30">A</div>
-                    <h3 class="text-xl sm:text-3xl font-black text-white tracking-widest">Spoken English</h3>
-                    <p class="urdu-text text-xs sm:text-base text-gray-300">
-                        بغیر کسی جھجھک کے روانی سے انگریزی بولنا سیکھیں۔ روزمرہ کے مکالمے اور کانفیڈنس بلڈنگ کی لائیو مشق۔
-                    </p>
-                </div>
-                <div class="mt-6 sm:mt-12 pt-4 sm:pt-8 border-t border-white/10 flex items-center justify-between text-[10px] sm:text-base">
-                    <span class="urdu-text text-cyan-300 font-bold">ماہانہ: 1,000 | مکمل: 2,000 PKR</span>
-                    <button onclick="openModal('spoken')" class="urdu-text text-amber-400 hover:text-white transition-all cursor-pointer flex items-center gap-1.5 font-bold">
-                        <span>مزید تفصیلات</span>
-                        <span>&larr;</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Course Card 2 -->
-            <div class="glass-card p-5 sm:p-12 rounded-2xl sm:rounded-3xl flex flex-col justify-between relative overflow-hidden group border border-white/10">
-                <div class="absolute top-0 right-0 w-24 sm:w-36 h-24 sm:h-36 bg-purple-500/10 rounded-full blur-3xl group-hover:bg-purple-500/25 transition-all"></div>
-                <div class="space-y-4 sm:space-y-8">
-                    <div class="w-10 h-10 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400 text-xl sm:text-3xl font-bold border border-purple-500/30">B</div>
-                    <h3 class="text-xl sm:text-3xl font-black text-white tracking-widest">IELTS Expert</h3>
-                    <p class="urdu-text text-xs sm:text-base text-gray-300">
-                        Academic اور General ٹریننگ۔ Listening, Reading, Writing اور Speaking میں ہدف بینڈز حاصل کرنے کے کارآمد طریقے اور موک ٹیسٹ۔
-                    </p>
-                </div>
-                <div class="mt-6 sm:mt-12 pt-4 sm:pt-8 border-t border-white/10 flex items-center justify-between text-[10px] sm:text-base">
-                    <span class="urdu-text text-purple-300 font-bold">ماہانہ: 1,000 | مکمل: 2,000 PKR</span>
-                    <button onclick="openModal('ielts')" class="urdu-text text-amber-400 hover:text-white transition-all cursor-pointer flex items-center gap-1.5 font-bold">
-                        <span>مزید تفصیلات</span>
-                        <span>&larr;</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Course Card 3 -->
-            <div class="glass-card p-5 sm:p-12 rounded-2xl sm:rounded-3xl flex flex-col justify-between relative overflow-hidden group border border-white/10">
-                <div class="absolute top-0 right-0 w-24 sm:w-36 h-24 sm:h-36 bg-amber-500/10 rounded-full blur-3xl group-hover:bg-amber-500/25 transition-all"></div>
-                <div class="space-y-4 sm:space-y-8">
-                    <div class="w-10 h-10 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-400 text-xl sm:text-3xl font-bold border border-amber-500/30">C</div>
-                    <h3 class="text-xl sm:text-3xl font-black text-white tracking-widest">Advanced Grammar</h3>
-                    <p class="urdu-text text-xs sm:text-base text-gray-300">
-                        بنیادی گرامر سے لے کر ایڈوانس رائٹنگ اسٹرکچرز تک۔ پروفیشنل تحریر کے تمام سنہری قواعد۔
-                    </p>
-                </div>
-                <div class="mt-6 sm:mt-12 pt-4 sm:pt-8 border-t border-white/10 flex items-center justify-between text-[10px] sm:text-base">
-                    <span class="urdu-text text-amber-300 font-bold">ماہانہ: 1,000 | مکمل: 2,000 PKR</span>
-                    <button onclick="openModal('grammar')" class="urdu-text text-amber-400 hover:text-white transition-all cursor-pointer flex items-center gap-1.5 font-bold">
-                        <span>مزید تفصیلات</span>
-                        <span>&larr;</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- INTERACTIVE LEVEL TEST SECTION -->
-    <section id="test-section" class="py-12 sm:py-36 bg-slate-950/40 relative z-10">
-        <div class="max-w-5xl mx-auto px-4 md:px-6 relative">
-            <div class="text-center mb-8 sm:mb-20 space-y-3 sm:space-y-4">
-                <span class="px-3.5 py-1.5 rounded-full bg-cyan-500/15 text-cyan-300 text-xs font-bold uppercase">سیلف اسیسمنٹ</span>
-                <h2 class="urdu-text text-2xl sm:text-6xl font-black text-white">اپنا <span class="neon-glow-flow">انگلش لیول</span> جانیں!</h2>
-                <p class="urdu-text text-xs sm:text-lg text-gray-300">مندرجہ ذیل 4 سوالات کے درست جوابات دے کر اپنے لیے بہترین تعلیمی مشورہ تلاش کریں۔</p>
-            </div>
-
-            <div class="glass-card p-5 sm:p-16 rounded-2xl sm:rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden min-h-[350px] sm:min-h-[420px] flex flex-col justify-between">
-                <div class="absolute -top-10 -left-10 w-24 sm:w-48 h-24 sm:h-48 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none"></div>
-
-                <div id="quiz-container" class="space-y-4 sm:space-y-8">
-                    <!-- Progress bar -->
-                    <div class="w-full bg-white/5 rounded-full h-1.5 sm:h-3 mb-6 sm:mb-10">
-                        <div id="quiz-progress" class="bg-gradient-to-r from-cyan-400 to-purple-500 h-1.5 sm:h-3 rounded-full transition-all duration-300" style="width: 25%"></div>
-                    </div>
-
-                    <!-- Question Block -->
-                    <div id="question-block" class="transition-all duration-300 transform translate-x-0 space-y-3 sm:space-y-6">
-                        <span id="question-number" class="urdu-text text-xs sm:text-base font-bold text-cyan-300">سوال 1/4</span>
-                        <h3 id="question-text" class="text-base sm:text-4xl font-bold text-white tracking-wide leading-snug">She ________ to school every single day.</h3>
-                        
-                        <!-- Options Group -->
-                        <div id="options-group" class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6 pt-2 sm:pt-4">
-                            <!-- Dynamic Options Filled By Javascript -->
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Result Block -->
-                <div id="result-block" class="hidden text-center py-4 sm:py-10 space-y-4 sm:space-y-8">
-                    <div class="w-12 h-12 sm:w-20 sm:h-20 bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 rounded-full flex items-center justify-center text-xl sm:text-4xl mx-auto mb-3 sm:mb-6">✓</div>
-                    <h3 class="urdu-text text-xl sm:text-4xl font-black text-white">ٹیسٹ مکمل ہو گیا ہے!</h3>
-                    <p id="result-score" class="urdu-text text-gray-200 text-xs sm:text-xl">آپ کا سکور: <span class="text-cyan-400 font-bold">4/4</span></p>
-                    <div class="p-4 sm:p-10 bg-white/5 border border-white/10 rounded-xl sm:rounded-3xl max-w-2xl mx-auto space-y-2 sm:space-y-4">
-                        <h4 class="urdu-text font-bold text-white text-sm sm:text-xl">ہمارا مشورہ:</h4>
-                        <p id="result-advice" class="urdu-text text-xs sm:text-base text-gray-300 leading-relaxed">آپ کی انگریزی کی بنیاد مضبوط ہے۔ ہم آپ کو IELTS Preparation کورس کی سفارش کرتے ہیں تاکہ آپ لائیو کوچنگ سے اپنا مقصد حاصل کرسکیں۔</p>
-                    </div>
-                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-8 justify-center">
-                        <button onclick="restartQuiz()" class="urdu-text bg-white/5 hover:bg-white/10 text-white border border-white/15 px-6 py-3 rounded-xl transition text-xs sm:text-base font-bold cursor-pointer w-full sm:w-auto">دوبارہ کوشش کریں</button>
-                        <a href="#admission-form" class="urdu-text bg-gradient-to-r from-cyan-400 to-purple-500 text-black font-extrabold px-6 py-3 rounded-xl transition text-xs sm:text-base shadow-2xl shadow-cyan-400/20 text-center w-full sm:w-auto">ابھی داخلہ لیں</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- EXPERT TEACHERS SHOWCASE -->
-    <section class="py-12 sm:py-36 max-w-7xl mx-auto px-4 md:px-6 relative z-10">
-        <div class="text-center mb-10 sm:mb-24 space-y-3 sm:space-y-4">
-            <span class="px-3.5 py-1.5 rounded-full bg-emerald-500/15 text-emerald-300 text-xs font-bold uppercase">ماہر ٹرینرز</span>
-            <h2 class="urdu-text text-2xl sm:text-6xl font-black text-white">ہمارے <span class="neon-glow-flow">بین الاقوامی معیار کے اساتذہ</span></h2>
-            <p class="urdu-text text-xs sm:text-lg text-gray-300">جو دوستانہ اور جدید طریقے سے لائیو کلاسز میں آپ کی رہنمائی فراہم کرتے ہیں۔</p>
-        </div>
-
-        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-10">
-            <!-- Lead Teacher: Sir Hassan Ali Jatoi -->
-            <div class="glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-10 text-center border-2 border-cyan-400/50 relative overflow-hidden space-y-4 sm:space-y-6 shadow-2xl">
-                <!-- Glowing corner ribbon for Lead Instructor status -->
-                <div class="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-cyan-400/20 text-cyan-300 border border-cyan-400/40 text-[9px] uppercase font-black tracking-widest">
-                    Senior Lead
-                </div>
-                <div class="w-20 h-20 sm:w-28 sm:h-28 rounded-full bg-cyan-500/20 text-cyan-300 flex items-center justify-center text-3xl sm:text-5xl mx-auto border-2 border-cyan-400/40 neon-glow-cyan">👑</div>
-                <div class="space-y-1 sm:space-y-2">
-                    <h4 class="text-lg sm:text-2xl font-black text-white tracking-wider">سر حسن علی جتوئی</h4>
-                    <p class="text-[9px] sm:text-xs text-cyan-300 font-bold tracking-widest uppercase">Lead English Linguistics Coach</p>
-                </div>
-                <p class="urdu-text text-xs sm:text-base text-gray-200">10 سال سے زائد کا تدریسی تجربہ اور 5000+ طلبہ کو روانی سے انگریزی اور IELTS سکھانے والے سینئر لائیو ٹرینر۔</p>
-                <div class="pt-2 flex justify-center gap-2 flex-wrap">
-                    <span class="px-2.5 py-1 rounded-xl bg-white/5 text-[9px] sm:text-xs text-gray-300 font-semibold border border-white/5">Excellent Feedback</span>
-                    <span class="px-2.5 py-1 rounded-xl bg-cyan-400/15 text-[9px] sm:text-xs text-cyan-300 font-semibold border border-cyan-400/20">Lead Mentor</span>
-                </div>
-            </div>
-
-            <!-- Teacher 2 -->
-            <div class="glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-10 text-center border border-white/10 relative overflow-hidden space-y-4 sm:space-y-6">
-                <div class="w-20 h-20 sm:w-28 sm:h-28 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center text-3xl sm:text-5xl mx-auto border border-emerald-500/30">🗣️</div>
-                <div class="space-y-1 sm:space-y-2">
-                    <h4 class="text-lg sm:text-2xl font-black text-white tracking-wider">سر عبدالرحمن</h4>
-                    <p class="text-[9px] sm:text-xs text-emerald-300 font-bold tracking-widest uppercase">IELTS & Accent Master Trainer</p>
-                </div>
-                <p class="urdu-text text-xs sm:text-base text-gray-300">موثر ترین پبلک اسپیکنگ تکنیکس، امریکی و برطانوی لہجے کی مشق، اور IELTS 8+ بینڈ پریپریشن کے ماہر۔</p>
-                <div class="pt-2 flex justify-center gap-2 flex-wrap">
-                    <span class="px-2.5 py-1 rounded-xl bg-white/5 text-[9px] sm:text-xs text-gray-300 font-semibold border border-white/5">Friendly Coach</span>
-                    <span class="px-2.5 py-1 rounded-xl bg-white/5 text-[9px] sm:text-xs text-gray-300 font-semibold border border-white/5">Accent Specialist</span>
-                </div>
-            </div>
-
-            <!-- Teacher 3 -->
-            <div class="glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-10 text-center border border-white/10 relative overflow-hidden space-y-4 sm:space-y-6">
-                <div class="w-20 h-20 sm:w-28 sm:h-28 rounded-full bg-amber-500/20 text-amber-300 flex items-center justify-center text-3xl sm:text-5xl mx-auto border border-amber-500/30">🧠</div>
-                <div class="space-y-1 sm:space-y-2">
-                    <h4 class="text-lg sm:text-2xl font-black text-white tracking-wider">مس عائشہ</h4>
-                    <p class="text-[9px] sm:text-xs text-amber-300 font-bold tracking-widest uppercase">Spoken English Master Coach</p>
-                </div>
-                <p class="urdu-text text-xs sm:text-base text-gray-300">خواتین اور بچوں کو انتہائی دوستانہ ماحول میں بنیادی گرامر کے ساتھ روانی سے انگلش بولنا سکھانے کی ماہر۔</p>
-                <div class="pt-2 flex justify-center gap-2 flex-wrap">
-                    <span class="px-2.5 py-1 rounded-xl bg-white/5 text-[9px] sm:text-xs text-gray-300 font-semibold border border-white/5">Interactive Style</span>
-                    <span class="px-2.5 py-1 rounded-xl bg-white/5 text-[9px] sm:text-xs text-gray-300 font-semibold border border-white/5">Grammar Coach</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MODERN REVIEWS SECTION -->
-    <section class="py-12 sm:py-36 bg-gradient-to-b from-transparent to-slate-950/50 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 md:px-6">
-            <div class="text-center mb-10 sm:mb-24 space-y-3 sm:space-y-4">
-                <h2 class="urdu-text text-2xl sm:text-6xl font-black tracking-widest text-white">طلبہ کی <span class="neon-glow-flow">کامیابی کی کہانیاں</span></h2>
-                <p class="urdu-text text-xs sm:text-lg text-gray-300">ہمارے طلبہ کا اعتماد ہی ہماری سب سے بڑی پہچان ہے۔</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-5 sm:gap-10">
-                <!-- Review 1 -->
-                <div class="glass-card p-5 sm:p-10 rounded-2xl sm:rounded-3xl relative border border-white/10">
-                    <div class="flex items-center gap-1 text-amber-400 mb-4 sm:mb-8 text-base sm:text-xl">
-                        ★★★★★
-                    </div>
-                    <p class="urdu-text text-white text-xs sm:text-base italic leading-relaxed mb-6 sm:mb-10">"پہلے مجھے انگلش بولتے ہوئے بہت ڈر لگتا تھا، لیکن سر حسن اور آکسفورڈ اکیڈمی کے شاندار اور انتہائی آسان ماحول نے میرا اعتماد بحال کر دیا۔ اب میں بغیر کسی خوف کے انگلش بولتا ہوں۔"</p>
-                    <div class="flex items-center gap-3 border-t border-white/10 pt-4 sm:pt-8">
-                        <div class="w-8 h-8 sm:w-14 sm:h-14 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-300 font-extrabold text-[10px] sm:text-sm">م ع</div>
-                        <div>
-                            <div class="font-bold text-white text-xs sm:text-base tracking-wider">محمد علی</div>
-                            <div class="urdu-text text-[9px] sm:text-xs text-gray-400">Spoken English گریجویٹ</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Review 2 -->
-                <div class="glass-card p-5 sm:p-10 rounded-2xl sm:rounded-3xl relative border border-white/10">
-                    <div class="flex items-center gap-1 text-amber-400 mb-4 sm:mb-8 text-base sm:text-xl">
-                        ★★★★★
-                    </div>
-                    <p class="urdu-text text-white text-xs sm:text-base italic leading-relaxed mb-6 sm:mb-10">"میں نے یہاں سے IELTS کی لائیو کلاسز لیں اور اپنے پہلے ہی ہدف میں 7.5 بینڈ حاصل کیے۔ نصاب کا ڈھانچہ اور موک ٹیسٹ کا طریقہ کار انتہائی شاندار اور آسان ہے۔ وہ بھی اتنی مناسب فیس میں۔"</p>
-                    <div class="flex items-center gap-3 border-t border-white/10 pt-4 sm:pt-8">
-                        <div class="w-8 h-8 sm:w-14 sm:h-14 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-300 font-extrabold text-[10px] sm:text-sm">ع ش</div>
-                        <div>
-                            <div class="font-bold text-white text-xs sm:text-base tracking-wider">عائشہ صدیقی</div>
-                            <div class="urdu-text text-[9px] sm:text-xs text-gray-400">IELTS اسکالر</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Review 3 -->
-                <div class="glass-card p-5 sm:p-10 rounded-2xl sm:rounded-3xl relative border border-white/10">
-                    <div class="flex items-center gap-1 text-amber-400 mb-4 sm:mb-8 text-base sm:text-xl">
-                        ★★★★★
-                    </div>
-                    <p class="urdu-text text-white text-xs sm:text-base italic leading-relaxed mb-6 sm:mb-10">"انگلش گرامر کورس نے میری ای میلز لکھنے کی صلاحیت کو جادوئی طور پر نکھار دیا۔ اب میں اپنی اسائنمنٹس اور خطوط بغیر کسی غلطی کے خود لکھتی ہوں۔ یہ بہت ہی زبردست ہے!"</p>
-                    <div class="flex items-center gap-3 border-t border-white/10 pt-4 sm:pt-8">
-                        <div class="w-8 h-8 sm:w-14 sm:h-14 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-300 font-extrabold text-[10px] sm:text-sm">ز خ</div>
-                        <div>
-                            <div class="font-bold text-white text-xs sm:text-base tracking-wider">زینب خان</div>
-                            <div class="urdu-text text-[9px] sm:text-xs text-gray-400">گرامر کورس اسٹوڈنٹ</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ SECTION WITH SMOOTH ACCORDIONS -->
-    <section class="py-12 sm:py-36 max-w-5xl mx-auto px-4 md:px-6 relative z-10">
-        <div class="text-center mb-10 sm:mb-24 space-y-3 sm:space-y-4">
-            <h2 class="urdu-text text-2xl sm:text-6xl font-extrabold text-white">عام طور پر <span class="neon-glow-flow">پوچھے گئے سوالات</span></h2>
-            <p class="urdu-text text-xs sm:text-lg text-gray-300">داخلے سے پہلے آپ کے ذہن میں موجود سوالات کے تفصیلی جوابات۔</p>
-        </div>
-
-        <div class="space-y-4 sm:space-y-8">
-            <!-- Accordion 1 -->
-            <div class="glass-card rounded-xl sm:rounded-3xl border border-white/10 overflow-hidden cursor-pointer" onclick="toggleAccordion(this)">
-                <button class="w-full flex items-center justify-between p-5 sm:p-10 text-right focus:outline-none gap-4">
-                    <span class="urdu-text text-sm sm:text-2xl font-bold text-white">کیا فیس واقعی صرف 1,000 اور 2,000 روپے ہے؟</span>
-                    <svg class="w-4 h-4 sm:w-7 sm:h-7 text-gray-400 accordion-icon transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
-                </button>
-                <div class="accordion-content px-5 sm:px-10 pb-5 sm:pb-10 text-gray-300 text-xs sm:text-lg leading-relaxed">
-                    <span class="urdu-text">جی ہاں بالکل! تعلیم کو ہر اسٹوڈنٹ کی پہنچ میں لانے کے لیے ہم نے ماہانہ فیس صرف 1,000 PKR اور مکمل کورس کی فیس یکمشت ادا کرنے کی صورت میں محض 2,000 PKR مقرر کی ہے۔ اس میں کوئی پوشیدہ چارجز نہیں ہیں۔</span>
-                </div>
-            </div>
-
-            <!-- Accordion 2 -->
-            <div class="glass-card rounded-xl sm:rounded-3xl border border-white/10 overflow-hidden cursor-pointer" onclick="toggleAccordion(this)">
-                <button class="w-full flex items-center justify-between p-5 sm:p-10 text-right focus:outline-none gap-4">
-                    <span class="urdu-text text-sm sm:text-2xl font-bold text-white">کیا کلاسز آن لائن ہوں گی یا کیمپس پر؟</span>
-                    <svg class="w-4 h-4 sm:w-7 sm:h-7 text-gray-400 accordion-icon transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
-                </button>
-                <div class="accordion-content px-5 sm:px-10 pb-5 sm:pb-10 text-gray-300 text-xs sm:text-lg leading-relaxed">
-                    <span class="urdu-text">ہم دونوں طریقے فراہم کرتے ہیں۔ دنیا بھر کے طلبہ زوم ایپ پر لائیو آن لائن سیکشنز کا حصہ بن سکتے ہیں، جبکہ کیمپس پر فزیکل کلاسز بھی اسی فیس پیکیج کے تحت حاصل کی جاسکتی ہیں۔</span>
-                </div>
-            </div>
-
-            <!-- Accordion 3 -->
-            <div class="glass-card rounded-xl sm:rounded-3xl border border-white/10 overflow-hidden cursor-pointer" onclick="toggleAccordion(this)">
-                <button class="w-full flex items-center justify-between p-5 sm:p-10 text-right focus:outline-none gap-4">
-                    <span class="urdu-text text-sm sm:text-2xl font-bold text-white">کیا کورس کے بعد آفیشل سرٹیفکیٹ ملے گا؟</span>
-                    <svg class="w-4 h-4 sm:w-7 sm:h-7 text-gray-400 accordion-icon transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
-                </button>
-                <div class="accordion-content px-5 sm:px-10 pb-5 sm:pb-10 text-gray-300 text-xs sm:text-lg leading-relaxed">
-                    <span class="urdu-text">جی بالکل! کورس کے کامیابی سے اختتام پر تمام طلبہ کو آکسفورڈ انگلش اکیڈمی کی جانب سے رجسٹرڈ آفیشل سرٹیفکیٹ پیش کیا جائے گا جو ان کے کیریئر اور سی وی (CV) کو مضبوط بنائے گا۔</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- HIGH-CONTRAST REGISTRATION FORM SECTION -->
-    <section id="admission-form" class="py-12 sm:py-36 px-4 md:px-6 relative overflow-hidden z-10">
-        <div class="absolute -bottom-24 -left-24 w-48 sm:w-96 h-48 sm:h-96 bg-cyan-600/10 rounded-full blur-[150px] pointer-events-none"></div>
-        <div class="max-w-3xl mx-auto glass-card p-5 sm:p-16 rounded-2xl sm:rounded-3xl relative z-10 border border-white/10 shadow-2xl space-y-6 sm:space-y-12">
-
-            <div class="text-center space-y-2.5 sm:space-y-4">
-                <span class="urdu-text px-4 py-2 rounded-full bg-cyan-500/15 text-cyan-300 text-[10px] sm:text-xs font-bold uppercase tracking-widest">رجسٹریشن سیشن 2026</span>
-                <h2 class="urdu-text text-2xl sm:text-5xl font-black text-white">
-                    ابھی <span class="neon-glow-flow">داخلہ حاصل کریں</span>
-                </h2>
-                <p class="urdu-text text-xs sm:text-base text-gray-300">نیچے دیا گیا فارم پُر کریں، ہماری رجسٹریشن ٹیم جلد رابطہ کرے گی۔</p>
-            </div>
-
-            <!-- Form -->
-            <form class="space-y-5 sm:space-y-8" onsubmit="handleRegistration(event)">
-                <div class="space-y-2 sm:space-y-3">
-                    <label class="urdu-text block text-xs sm:text-base uppercase text-gray-300 font-semibold">آپ کا نام</label>
-                    <input type="text"
-                        id="form-name"
-                        placeholder="پورا نام لکھیں"
-                        required
-                        class="w-full p-4 rounded-xl sm:rounded-2xl premium-input text-white placeholder-gray-600 transition text-right text-sm sm:text-lg font-bold">
-                </div>
-
-                <div class="space-y-2 sm:space-y-3">
-                    <label class="urdu-text block text-xs sm:text-base uppercase text-gray-300 font-semibold">ای میل ایڈریس</label>
-                    <input type="email"
-                        id="form-email"
-                        placeholder="example@mail.com"
-                        required
-                        class="w-full p-4 rounded-xl sm:rounded-2xl premium-input text-white placeholder-gray-600 transition text-left text-sm sm:text-lg font-bold" style="direction: ltr;">
-                </div>
-
-                <div class="space-y-2 sm:space-y-3">
-                    <label class="urdu-text block text-xs sm:text-base uppercase text-gray-300 font-semibold">واٹس ایپ یا موبائل نمبر</label>
-                    <input type="tel"
-                        id="form-phone"
-                        placeholder="03000000000"
-                        required
-                        class="w-full p-4 rounded-xl sm:rounded-2xl premium-input text-white placeholder-gray-600 transition text-left text-sm sm:text-lg font-bold" style="direction: ltr;">
-                </div>
-                
-                <div class="space-y-2 sm:space-y-3">
-                    <label class="urdu-text block text-xs sm:text-base uppercase text-gray-300 font-semibold">مطلوبہ کورس اور فیس پلان منتخب کریں</label>
-                    <select id="form-course" class="urdu-text w-full p-4 rounded-xl sm:rounded-2xl premium-input text-white bg-[#030712] transition cursor-pointer text-sm sm:text-lg font-bold">
-                        <option value="spoken_monthly" class="bg-[#030712]">Spoken English (ماہانہ فیس: 1,000 PKR)</option>
-                        <option value="spoken_complete" class="bg-[#030712]">Spoken English (مکمل فیس: 2,000 PKR)</option>
-                        <option value="ielts_monthly" class="bg-[#030712]">IELTS Prep (ماہانہ فیس: 1,000 PKR)</option>
-                        <option value="ielts_complete" class="bg-[#030712]">IELTS Prep (مکمل فیس: 2,000 PKR)</option>
-                        <option value="grammar_monthly" class="bg-[#030712]">Advanced Grammar (ماہانہ فیس: 1,000 PKR)</option>
-                        <option value="grammar_complete" class="bg-[#030712]">Advanced Grammar (مکمل فیس: 2,000 PKR)</option>
-                    </select>
-                </div>
-
-                <button type="submit"
-                    class="urdu-text w-full bg-gradient-to-r from-cyan-400 via-purple-500 to-amber-400 hover:from-cyan-500 hover:to-purple-600 p-4 rounded-xl sm:rounded-2xl font-black text-base sm:text-2xl tracking-wide transition-all transform hover:scale-[1.01] active:scale-[0.99] shadow-2xl shadow-cyan-500/20 mt-6 sm:mt-12 text-black flex justify-center items-center gap-3 cursor-pointer">
-                    <span id="submit-btn-text">درخواست جمع کروائیں</span>
-                    <svg id="loading-spinner" class="hidden animate-spin h-5 w-5 sm:h-7 sm:w-7 text-black" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                </button>
-            </form>
-
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="py-8 sm:py-16 text-center text-gray-500 text-xs sm:text-sm border-t border-white/5 bg-slate-950/20">
-        <div class="max-w-7xl mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-10 text-center md:text-right">
-            <div class="text-gray-300 font-extrabold tracking-widest text-base sm:text-xl neon-glow-cyan">OXFORD ENGLISH ACADEMY</div>
-            <div class="text-[9px] sm:text-xs text-gray-500 tracking-wide sm:tracking-widest">&copy; 2026 Oxford English Academy. Designed to Perfection. All rights reserved.</div>
-        </div>
-    </footer>
-
-    <!-- COURSE DETAILS MODAL -->
-    <div id="course-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/90 backdrop-blur-md hidden transition-opacity duration-300">
-        <div class="glass-card w-full max-w-3xl rounded-2xl sm:rounded-3xl overflow-hidden border border-white/25 shadow-2xl relative transform transition-all scale-95 duration-300" id="modal-container">
-            
-            <!-- Close Button -->
-            <button onclick="closeModal()" class="absolute top-4 left-4 text-gray-400 hover:text-white transition p-2 rounded-full bg-white/5 border border-white/10 z-10 cursor-pointer">
-                <svg class="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-
-            <!-- Dynamic Target Modal Area Filled by JS -->
-            <div id="modal-content-area" class="p-5 sm:p-14">
-                <!-- Javascript Filled Elements -->
-            </div>
-        </div>
-    </div>
-
-    <!-- SUCCESS CUSTOM TOAST -->
-    <div id="success-toast" class="fixed bottom-4 left-4 z-50 glass-card border-emerald-500/30 p-5 sm:p-10 rounded-xl sm:rounded-3xl max-w-xs sm:max-w-md hidden transform translate-y-20 transition-all duration-300 shadow-2xl">
-        <div class="flex items-start gap-3 sm:gap-6">
-            <div class="w-8 h-8 sm:w-14 sm:h-14 bg-emerald-500/10 border-2 border-emerald-500/25 text-emerald-400 rounded-full flex items-center justify-center text-lg sm:text-3xl shrink-0">✓</div>
-            <div class="space-y-1 sm:space-y-2">
-                <h4 class="urdu-text font-black text-white text-sm sm:text-2xl">درخواست جمع ہو گئی ہے!</h4>
-                <p class="urdu-text text-[10px] sm:text-base text-gray-300">ہمارا کونسلر اگلے 2 گھنٹوں کے اندر آپ سے واٹس ایپ پر رابطہ کرے گا۔</p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // --- COUNT UP ANIMATED STATS ---
-        function animateValue(obj, start, end, duration, format = '+') {
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                const currentVal = Math.floor(progress * (end - start) + start);
-                obj.innerHTML = currentVal + (format === '%' ? '%' : format);
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                }
-            };
-            window.requestAnimationFrame(step);
-        }
-
-        window.onload = function() {
-            // Stats activation
-            const studObj = document.getElementById("val-students");
-            const satObj = document.getElementById("val-satisfaction");
-            const ieltsObj = document.getElementById("val-ielts");
-
-            animateValue(studObj, 0, 5000, 2000, '+');
-            animateValue(satObj, 0, 99, 1800, '%');
-            animateValue(ieltsObj, 0, 8, 1500, '.5+');
-
-            // Initialize features
-            loadQuizQuestion();
-            updateCalculator();
-        };
-
-        // --- FAQ ACCORDION LOGIC ---
-        function toggleAccordion(element) {
-            const isActive = element.classList.contains('accordion-active');
-            
-            document.querySelectorAll('.accordion-active').forEach(activeItem => {
-                activeItem.classList.remove('accordion-active');
-            });
-
-            if (!isActive) {
-                element.classList.add('accordion-active');
-            }
-        }
-
-        // --- DYNAMIC FRIENDLY CHATBOT ZARA ---
-        let chatWindowOpen = false;
-        function toggleChatWindow() {
-            const win = document.getElementById('chat-window');
-            if(chatWindowOpen) {
-                win.classList.add('hidden', 'scale-95');
-                chatWindowOpen = false;
-            } else {
-                win.classList.remove('hidden');
-                setTimeout(() => {
-                    win.classList.remove('scale-95');
-                }, 50);
-                chatWindowOpen = true;
-            }
-        }
-
-        const botReplies = {
-            courses_info: "ہمارے پاس 3 پریمیم لائیو کورسز دستیاب ہیں:\n1. **Spoken English** (روانی سے انگلش بولیں)\n2. **IELTS Expert** (بین الاقوامی بینڈ اسکورنگ)\n3. **Advanced Grammar** (پروفیشنل تحریر اور قواعد)\n\nہر کورس سر حسن علی جتوئی کی سرپرستی میں ڈیزائن کیا گیا ہے۔",
-            fee_structure: "ہمارے پاس اب تک کی سب سے مناسب فیس ہے:\n- ماہانہ فیس پلان: **1,000 PKR**\n- مکمل یکمشت فیس کورس: **2,000 PKR**\n\nاس شاندار پیشکش میں کوئی پوشیدہ چارجز نہیں ہیں!",
-            class_timing: "طلبہ اور پروفیشنلز کے لیے لچکدار اوقات کار دستیاب ہیں:\n- مارننگ بیج: 10:00 AM سے 11:30 AM\n- آفٹرنون بیج: 3:00 PM سے 4:30 PM\n- ایوننگ بیج: 7:00 PM سے 8:30 PM\n\nکلاسز لائیو اور ریکارڈنگ دونوں صورتوں میں دستیاب ہیں۔",
-            demo_class: "بالکل! ہم آپ کو **3 دن کی فری ڈیمو کلاسز** فراہم کرتے ہیں تاکہ آپ اکیڈمی کے پڑھانے کے طریقے کو خود لائیو دیکھ سکیں۔ بس داخلہ فارم بھریں، ہم ڈیمو لنک بھیج دیں گے۔"
-        };
-
-        function sendQuickMessage(key) {
-            const msgsArea = document.getElementById('chat-messages');
-            
-            const userLabels = {
-                courses_info: "کورسز کی تفصیل؟",
-                fee_structure: "فیس کتنی ہے؟",
-                class_timing: "کلاس کا وقت؟",
-                demo_class: "فری ڈیمو کلاسز؟"
-            };
-
-            const userBubble = document.createElement('div');
-            userBubble.className = "flex items-start justify-end gap-2 sm:gap-3";
-            userBubble.innerHTML = `
-                <div class="urdu-text bg-gradient-to-r from-cyan-400 to-purple-500 rounded-xl p-3 sm:p-5 text-[10px] sm:text-sm text-black font-bold max-w-[85%] leading-relaxed text-right shadow-md">
-                    ${userLabels[key]}
-                </div>
-            `;
-            msgsArea.appendChild(userBubble);
-            msgsArea.scrollTop = msgsArea.scrollHeight;
-
-            const typingBubble = document.createElement('div');
-            typingBubble.id = 'chat-typing-status';
-            typingBubble.className = "flex items-start gap-2 sm:gap-3";
-            typingBubble.innerHTML = `
-                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-cyan-400/20 text-cyan-300 flex items-center justify-center font-bold text-[10px] shrink-0">Z</div>
-                <div class="bg-white/5 border border-white/10 rounded-xl p-3 sm:p-5 flex items-center gap-1.5 shadow-md">
-                    <span class="typing-dot"></span>
-                    <span class="typing-dot"></span>
-                    <span class="typing-dot"></span>
-                </div>
-            `;
-            msgsArea.appendChild(typingBubble);
-            msgsArea.scrollTop = msgsArea.scrollHeight;
-
-            setTimeout(() => {
-                const typingStatus = document.getElementById('chat-typing-status');
-                if(typingStatus) typingStatus.remove();
-
-                const zaraReply = document.createElement('div');
-                zaraReply.className = "flex items-start gap-2 sm:gap-3";
-                zaraReply.innerHTML = `
-                    <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-cyan-400/20 text-cyan-300 flex items-center justify-center font-bold text-[10px] shrink-0">Z</div>
-                    <div class="urdu-text bg-white/5 border border-white/10 rounded-xl p-3 sm:p-5 text-[10px] sm:text-sm text-gray-200 max-w-[85%] leading-relaxed whitespace-pre-line shadow-md">
-                        ${botReplies[key]}
-                    </div>
-                `;
-                msgsArea.appendChild(zaraReply);
-                msgsArea.scrollTop = msgsArea.scrollHeight;
-            }, 1000);
-        }
-
-        // --- INTERACTIVE FEE CALCULATOR ---
-        let calState = {
-            course: 'spoken',
-            format: 'online',
-            plan: 'monthly',
-            fee: 1000
-        };
-
-        const courseMeta = {
-            spoken: { title: "Spoken English", desc: "بغیر کسی جھجھک کے روانی سے انگریزی بولنا سیکھیں۔" },
-            ielts: { title: "IELTS Expert", desc: "تفصیلی پریکٹس، موک ٹیسٹ اور لائیو انٹرویوز۔" },
-            grammar: { title: "Advanced Grammar", desc: "تحریر اور زبانی قواعد پر مکمل عبور حاصل کریں۔" }
-        };
-
-        function selectCalCourse(id) {
-            calState.course = id;
-            
-            ['spoken', 'ielts', 'grammar'].forEach(c => {
-                document.getElementById(`cal-${c}`).classList.remove('option-active');
-            });
-            document.getElementById(`cal-${id}`).classList.add('option-active');
-            updateCalculator();
-        }
-
-        function selectCalFormat(id) {
-            calState.format = id;
-
-            ['online', 'physical'].forEach(f => {
-                document.getElementById(`cal-${f}`).classList.remove('option-active');
-            });
-            document.getElementById(`cal-${id}`).classList.add('option-active');
-            updateCalculator();
-        }
-
-        function selectCalPlan(id, price) {
-            calState.plan = id;
-            calState.fee = price;
-
-            ['monthly', 'full'].forEach(p => {
-                document.getElementById(`cal-${p}`).classList.remove('option-active');
-            });
-            document.getElementById(`cal-${id}`).classList.add('option-active');
-            updateCalculator();
-        }
-
-        function updateCalculator() {
-            document.getElementById('sum-course-title').innerText = courseMeta[calState.course].title;
-            document.getElementById('sum-course-desc').innerText = courseMeta[calState.course].desc;
-            document.getElementById('sum-base-fee').innerText = `${calState.fee.toLocaleString()} PKR`;
-            
-            document.getElementById('sum-total-fee').innerHTML = `${calState.fee.toLocaleString()} <span class="text-xs sm:text-xl font-bold text-white">PKR</span>`;
-        }
-
-        function applyWithCal() {
-            const selectEl = document.getElementById('form-course');
-            const targetVal = `${calState.course}_${calState.plan}`;
-            
-            for (let i = 0; i < selectEl.options.length; i++) {
-                if (selectEl.options[i].value === targetVal) {
-                    selectEl.selectedIndex = i;
-                    break;
-                }
-            }
-        }
-
-        // --- GRAMMAR MINI GAME ---
-        const gameData = [
-            {
-                q: "Which one is completely correct?",
-                options: ["He do not like tea.", "He does not like tea.", "He does not likes tea."],
-                answer: 1
-            },
-            {
-                q: "Choose the correct preposition:",
-                options: ["He is good in Speaking.", "He is good at Speaking.", "He is good with Speaking."],
-                answer: 1
-            },
-            {
-                q: "Select the sentence with correct word order:",
-                options: ["I always speak English in class.", "I speak English always in class.", "Always I speak English in class."],
-                answer: 0
-            },
-            {
-                q: "Find the passive voice of: 'Hassan wrote a letter.'",
-                options: ["A letter is written by Hassan.", "A letter was written by Hassan.", "A letter written by Hassan."],
-                answer: 1
-            }
-        ];
-
-        let gameIndex = 0;
-        let gameScore = 0;
-
-        function startGame() {
-            document.getElementById('game-welcome').classList.add('hidden');
-            document.getElementById('game-play').classList.remove('hidden');
-            loadGameQuestion();
-        }
-
-        function loadGameQuestion() {
-            const curQ = gameData[gameIndex];
-            document.getElementById('game-progress-text').innerText = `سوال ${gameIndex + 1}/${gameData.length}`;
-            document.getElementById('game-score-badge').innerText = `اسکور: ${gameScore * 10}`;
-            
-            const progress = ((gameIndex + 1) / gameData.length) * 100;
-            document.getElementById('game-progress-bar').style.width = progress + '%';
-
-            document.getElementById('game-question-title').innerText = curQ.q;
-
-            const optContainer = document.getElementById('game-options');
-            optContainer.innerHTML = '';
-
-            curQ.options.forEach((opt, idx) => {
-                const btn = document.createElement('button');
-                btn.className = "w-full text-right p-4 rounded-xl premium-input text-gray-200 hover:text-white hover:bg-white/5 border border-white/10 transition flex justify-between items-center text-xs sm:text-lg cursor-pointer";
-                btn.innerHTML = `
-                    <span>${opt}</span>
-                    <span class="w-5 h-5 rounded-full border border-white/30 flex items-center justify-center text-xs text-transparent shrink-0">○</span>
-                `;
-                btn.onclick = () => selectGameOption(idx);
-                optContainer.appendChild(btn);
-            });
-        }
-
-        function selectGameOption(selectedIdx) {
-            const curQ = gameData[gameIndex];
-            const feedbackBlock = document.getElementById('game-feedback');
-            feedbackBlock.classList.remove('hidden');
-
-            if(selectedIdx === curQ.answer) {
-                gameScore++;
-                feedbackBlock.className = "mt-4 p-4 rounded-xl text-center font-bold text-xs sm:text-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/25";
-                feedbackBlock.innerText = "درست جواب! بہت شاندار 🎉";
-            } else {
-                feedbackBlock.className = "mt-4 p-4 rounded-xl text-center font-bold text-xs sm:text-lg bg-red-500/10 text-red-400 border border-red-500/25";
-                feedbackBlock.innerText = "غلط جواب! کوشش جاری رکھیں۔";
-            }
-
-            document.querySelectorAll('#game-options button').forEach(b => b.disabled = true);
-
-            setTimeout(() => {
-                feedbackBlock.classList.add('hidden');
-                if(gameIndex < gameData.length - 1) {
-                    gameIndex++;
-                    loadGameQuestion();
-                } else {
-                    showGameResults();
-                }
-            }, 1500);
-        }
-
-        function showGameResults() {
-            document.getElementById('game-play').classList.add('hidden');
-            const resultPanel = document.getElementById('game-result');
-            resultPanel.classList.remove('hidden');
-
-            document.getElementById('game-result-text').innerHTML = `آپ نے 4 میں سے <span class="text-cyan-400 font-extrabold text-2xl sm:text-3xl">${gameScore}</span> اسکور حاصل کیا ہے۔`;
-            
-            const emojiEl = document.getElementById('game-result-emoji');
-            if(gameScore === 4) {
-                emojiEl.innerText = "🥇";
-            } else if(gameScore >= 2) {
-                emojiEl.innerText = "🥈";
-            } else {
-                emojiEl.innerText = "🥉";
-            }
-        }
-
-        function restartGame() {
-            gameIndex = 0;
-            gameScore = 0;
-            document.getElementById('game-result').classList.add('hidden');
-            document.getElementById('game-welcome').classList.remove('hidden');
-        }
-
-        // --- COURSE DETAILS MODAL SYSTEM ---
-        const courseDetails = {
-            spoken: {
-                title: 'Spoken English Course',
-                subtitle: 'روانی اور مضبوط خود اعتمادی سے بولنا سیکھیں',
-                badge: 'بنیادی تا ایڈوانس',
-                duration: '2 ماہ (روزانہ لائیو سیشنز)',
-                level: 'کوئی بھی سیکھ سکتا ہے',
-                modules: [
-                    'کانفیڈنس بلڈنگ اور روزمرہ گفتگو کی لائیو مشقیں',
-                    'تلفظ اور لہجے کی اصلاح (Accent Correctness)',
-                    'عوامی خطاب (Public Speaking) اور مکالمے',
-                    'انفرادی فیڈ بیک سیشنز مع سر حسن علی جتوئی'
-                ],
-                price: 'ماہانہ: 1,000 | مکمل: 2,000 PKR'
-            },
-            ielts: {
-                title: 'IELTS Expert Prep',
-                subtitle: 'پہلی کوشش میں اپنا ہدف حاصل کریں',
-                badge: 'اکیڈمک اور جنرل ٹریننگ',
-                duration: '3 ماہ (ہفتہ وار 5 دن کلاس)',
-                level: 'بنیادی انگریزی کے حامل افراد',
-                modules: [
-                    'تمام 4 ماڈیولز (Listening, Reading, Writing, Speaking) کی مکمل رہنمائی',
-                    'ماہرین کی زیر نگرانی لائیو اور مانیٹرڈ موک ٹیسٹ (Mock Tests)',
-                    'ایسے اور خطوط کی انفرادی ایویلیوایشن اور فیڈ بیک',
-                    'مخصوص اسپیکنگ اور ون ٹو ون انٹرویوز کی لائیو تیاری'
-                ],
-                price: 'ماہانہ: 1,000 | مکمل: 2,000 PKR'
-            },
-            grammar: {
-                title: 'Advanced English Grammar',
-                subtitle: 'تحریر اور زبان کے ڈھانچے پر عبور حاصل کریں',
-                badge: 'پروفیشنل اور اکیڈمک',
-                duration: '1.5 ماہ (روزانہ لائیو سیشنز)',
-                level: 'بنیادی انگریزی سیکھنے والے',
-                modules: [
-                    'ٹینسز اور سینٹنس اسٹرکچرنگ (Tenses & Structures)',
-                    'ایکٹو/پیسیو اور ڈائریکٹ/انڈائریکٹ پر لائیو مہارت',
-                    'پیشہ ورانہ ای میلز اور کاروباری تحریروں کی فارمیٹنگ',
-                    'ایڈوانس الفاظ کا ذخیرہ اور ان کا روزمرہ درست استعمال'
-                ],
-                price: 'ماہانہ: 1,000 | مکمل: 2,000 PKR'
-            }
-        };
-
-        function openModal(courseKey) {
-            const modal = document.getElementById('course-modal');
-            const container = document.getElementById('modal-container');
-            const data = courseDetails[courseKey];
-            
-            if(!data) return;
-
-            let modulesHTML = '';
-            data.modules.forEach(mod => {
-                modulesHTML += `
-                    <li class="flex items-center gap-2.5 text-gray-200 text-xs sm:text-lg py-1.5 sm:py-3">
-                        <span class="w-2 h-2 rounded-full bg-cyan-400 shrink-0"></span>
-                        <span>${mod}</span>
-                    </li>
-                `;
-            });
-
-            document.getElementById('modal-content-area').innerHTML = `
-                <div class="mb-3 sm:mb-6 text-right">
-                    <span class="px-3.5 py-1 text-[10px] font-bold rounded-full bg-cyan-400/10 text-cyan-400 border border-cyan-400/30">${data.badge}</span>
-                </div>
-                <h3 class="urdu-text text-xl sm:text-4xl font-black text-white mb-1.5 text-right">${data.title}</h3>
-                <p class="urdu-text text-xs sm:text-lg text-gray-300 mb-4 sm:mb-10 font-medium text-right">${data.subtitle}</p>
-
-                <div class="grid grid-cols-2 gap-3 sm:gap-8 mb-4 sm:mb-10">
-                    <div class="p-3 sm:p-6 bg-white/5 border border-white/10 rounded-xl text-right shadow-md">
-                        <span class="urdu-text block text-[9px] sm:text-xs text-amber-400 font-bold uppercase mb-1">کورس کا دورانیہ</span>
-                        <span class="urdu-text text-[10px] sm:text-base font-semibold text-white">${data.duration}</span>
-                    </div>
-                    <div class="p-3 sm:p-6 bg-white/5 border border-white/10 rounded-xl text-right shadow-md">
-                        <span class="urdu-text block text-[9px] sm:text-xs text-amber-400 font-bold uppercase mb-1">کورس فیس</span>
-                        <span class="urdu-text text-[10px] sm:text-base font-semibold text-cyan-400">${data.price}</span>
-                    </div>
-                </div>
-
-                <div class="mb-6 sm:mb-12 text-right">
-                    <h4 class="urdu-text font-bold text-white mb-3 sm:mb-6 text-base sm:text-2xl">کورس کا نصاب اور فیچرز:</h4>
-                    <ul class="space-y-1.5 sm:space-y-4">
-                        ${modulesHTML}
-                    </ul>
-                </div>
-
-                <div class="flex gap-3 sm:gap-8 w-full">
-                    <button onclick="closeModal()" class="urdu-text w-1/2 bg-white/5 hover:bg-white/10 text-white font-bold p-3 sm:p-6 rounded-xl text-center transition border border-white/15 text-xs sm:text-lg cursor-pointer">
-                        بند کریں
-                    </button>
-                    <a href="#admission-form" onclick="selectCourseInForm('${courseKey}')" class="urdu-text w-1/2 bg-gradient-to-r from-cyan-400 to-purple-500 hover:from-cyan-500 hover:to-purple-600 text-black text-center font-black p-3 sm:p-6 rounded-xl transition text-xs sm:text-lg flex justify-center items-center shadow-2xl shadow-cyan-500/20">
-                        ابھی داخلہ لیں
-                    </a>
-                </div>
-            `;
-
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                container.classList.remove('scale-95');
-                container.classList.add('scale-100');
-            }, 50);
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('course-modal');
-            const container = document.getElementById('modal-container');
-            container.classList.remove('scale-100');
-            container.classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 200);
-        }
-
-        function selectCourseInForm(courseKey) {
-            closeModal();
-            const selectEl = document.getElementById('form-course');
-            // Default to monthly plan for selected course
-            const targetVal = `${courseKey}_monthly`;
-            for (let i = 0; i < selectEl.options.length; i++) {
-                if (selectEl.options[i].value === targetVal) {
-                    selectEl.selectedIndex = i;
-                    break;
-                }
-            }
-        }
-
-        // --- ASSESSMENT LEVEL QUIZ ---
-        const quizData = [
-            {
-                q: "She ________ to school every single day.",
-                options: ["go", "goes", "going", "gone"],
-                answer: 1
-            },
-            {
-                q: "I have been writing my thesis ________ morning.",
-                options: ["for", "since", "from", "at"],
-                answer: 1
-            },
-            {
-                q: "Identify the tense: 'They will have finished their task by night.'",
-                options: ["Present Perfect", "Future Continuous", "Future Perfect", "Past Simple"],
-                answer: 2
-            },
-            {
-                q: "Passive Voice of 'She plays cricket' is:",
-                options: ["Cricket is played by her", "Cricket was played by her", "Cricket played by her", "She has played cricket"],
-                answer: 0
-            }
-        ];
-
-        let currentQuestionIndex = 0;
-        let score = 0;
-
-        function loadQuizQuestion() {
-            const progress = ((currentQuestionIndex + 1) / quizData.length) * 100;
-            document.getElementById('quiz-progress').style.width = progress + '%';
-            
-            document.getElementById('question-number').innerText = `سوال ${currentQuestionIndex + 1}/${quizData.length}`;
-            
-            const currentQ = quizData[currentQuestionIndex];
-            document.getElementById('question-text').innerText = currentQ.q;
-            
-            const optionsGroup = document.getElementById('options-group');
-            optionsGroup.innerHTML = '';
-            
-            currentQ.options.forEach((opt, idx) => {
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.className = "w-full text-right p-4 rounded-xl premium-input text-gray-200 hover:text-white hover:bg-white/5 border border-white/10 transition flex justify-between items-center text-xs sm:text-lg cursor-pointer focus:outline-none";
-                btn.innerHTML = `
-                    <span>${opt}</span>
-                    <span class="w-5 h-5 rounded-full border border-white/30 flex items-center justify-center text-xs text-transparent shrink-0">○</span>
-                `;
-                btn.onclick = () => selectOption(idx);
-                optionsGroup.appendChild(btn);
-            });
-        }
-
-        function selectOption(selectedIndex) {
-            const currentQ = quizData[currentQuestionIndex];
-            if(selectedIndex === currentQ.answer) {
-                score++;
-            }
-
-            if(currentQuestionIndex < quizData.length - 1) {
-                currentQuestionIndex++;
-                loadQuizQuestion();
-            } else {
-                showQuizResults();
-            }
-        }
-
-        function showQuizResults() {
-            document.getElementById('quiz-container').classList.add('hidden');
-            const resultBlock = document.getElementById('result-block');
-            resultBlock.classList.remove('hidden');
-
-            document.getElementById('result-score').innerHTML = `آپ کا سکور: <span class="text-cyan-400 font-bold">${score}/${quizData.length}</span>`;
-
-            let advice = "";
-            if(score === 4) {
-                advice = "ماشاءاللہ! آپ کی انگریزی کی بنیادی سمجھ بوجھ بہترین ہے۔ ہم آپ کو مشورہ دیتے ہیں کہ آپ IELTS Expert کورس اختیار کریں تاکہ آپ لائیو کوچنگ سے اپنا مقصد حاصل کرسکیں۔";
-            } else if(score === 2 || score === 3) {
-                advice = "بہترین کوشش! آپ کی انگلش کی بنیاد تو درست ہے مگر بول چال میں روانی کی ضرورت ہے۔ ہم آپ کو Spoken English کورس کی انتہائی سفارش کرتے ہیں۔";
-            } else {
-                advice = "پریشان ہونے کی بالکل ضرورت نہیں! آپ کی گرامر کی بنیادوں کو مستحکم کرنے کی ضرورت ہے۔ ہم آپ کو مشورہ دیں گے کہ Advanced English Grammar سے آغاز کریں۔";
-            }
-            document.getElementById('result-advice').innerText = advice;
-        }
-
-        function restartQuiz() {
-            currentQuestionIndex = 0;
-            score = 0;
-            document.getElementById('result-block').classList.add('hidden');
-            document.getElementById('quiz-container').classList.remove('hidden');
-            loadQuizQuestion();
-        }
-
-        // --- SUBMIT REGISTRATION HANDLER ---
-        function handleRegistration(e) {
-            e.preventDefault();
-
-            const name = document.getElementById('form-name').value;
-            const email = document.getElementById('form-email').value;
-            const phone = document.getElementById('form-phone').value;
-            const course = document.getElementById('form-course').value;
-
-            const submitBtnText = document.getElementById('submit-btn-text');
-            const spinner = document.getElementById('loading-spinner');
-
-            submitBtnText.innerText = "پروسیس ہو رہا ہے...";
-            spinner.classList.remove('hidden');
-
-            setTimeout(() => {
-                document.getElementById('form-name').value = '';
-                document.getElementById('form-email').value = '';
-                document.getElementById('form-phone').value = '';
-                
-                submitBtnText.innerText = "درخواست جمع کروائیں";
-                spinner.classList.add('hidden');
-
-                showSuccessToast();
-            }, 1200);
-        }
-
-        function showSuccessToast() {
-            const toast = document.getElementById('success-toast');
-            toast.classList.remove('hidden', 'translate-y-20');
-            toast.classList.add('translate-y-0');
-
-            setTimeout(() => {
-                toast.classList.add('translate-y-20');
-                setTimeout(() => {
-                    toast.classList.add('hidden');
-                }, 300);
-            }, 6000);
-        }
-    </script>
 </body>
 </html>
+
 
