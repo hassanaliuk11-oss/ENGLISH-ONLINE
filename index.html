@@ -94,7 +94,7 @@
 
     .features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 25px;
     }
     .card {
@@ -102,23 +102,12 @@
       backdrop-filter: blur(15px);
       border-radius: 15px;
       padding: 25px;
+      text-align: center;
       transition: transform 0.4s, box-shadow 0.4s;
     }
     .card:hover {
       transform: translateY(-10px);
       box-shadow: 0 12px 20px rgba(0,0,0,0.5);
-    }
-    .card h3 {
-      color: #00f2fe;
-      margin-bottom: 15px;
-    }
-    .card ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .card ul li {
-      margin: 5px 0;
     }
 
     form {
@@ -185,78 +174,223 @@
     </p>
   </section>
 
-  <section id="features">
-    <h2>Features</h2>
-    <div class="features">
-      <div class="card">
-        <h3>1. English Alphabet</h3>
-        <ul>
-          <li>A–Z Letters</li>
-          <li>Capital & Small Letters</li>
-          <li>Vowels (A, E, I, O, U)</li>
-          <li>Consonants</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>2. Parts of Speech</h3>
-        <ul>
-          <li>Noun, Pronoun, Verb</li>
-          <li>Adjective, Adverb</li>
-          <li>Preposition, Conjunction</li>
-          <li>Interjection</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>3. Vocabulary</h3>
-        <ul>
-          <li>Daily Use Words</li>
-          <li>Family, School, Office</li>
-          <li>Food, Fruits & Vegetables</li>
-          <li>Animals, Colors, Body Parts</li>
-          <li>Clothes, Weather, Transport</li>
-          <li>Jobs, Countries, Numbers</li>
-          <li>Days, Months, Time & Dates</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>4. Grammar</h3>
-        <ul>
-          <li>Articles, Singular & Plural</li>
-          <li>Countable & Uncountable</li>
-          <li>Gender, Possessives</li>
-          <li>Subject & Predicate</li>
-          <li>Subject-Verb Agreement</li>
-          <li>Helping, Main & Modal Verbs</li>
-          <li>Tenses (12), Active/Passive</li>
-          <li>Direct/Indirect Speech</li>
-          <li>Conditionals, Question Tags</li>
-          <li>Relative Clauses, Comparisons</li>
-          <li>Gerunds & Infinitives</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>5. Tenses (12)</h3>
-        <ul>
-          <li>Present, Past, Future (Simple, Continuous, Perfect, Perfect Continuous)</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>6. Sentence Structure</h3>
-        <ul>
-          <li>SVO Pattern</li>
-          <li>Positive, Negative, Interrogative</li>
-          <li>WH & Yes/No Questions</li>
-          <li>Short Answers</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>7. Punctuation</h3>
-        <ul>
-          <li>Full Stop, Comma, Question Mark</li>
-          <li>Exclamation, Colon, Semicolon</li>
-          <li>Apostrophe, Quotation Marks</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>8. Reading
+<section id="features">
+  <h2>Features</h2>
+  <div class="features">
+    <div class="card">
+      <h3>1. English Alphabet</h3>
+      <ul>
+        <li>A–Z Letters</li>
+        <li>Capital & Small Letters</li>
+        <li>Vowels (A, E, I, O, U)</li>
+        <li>Consonants</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>2. Parts of Speech</h3>
+      <ul>
+        <li>Noun</li>
+        <li>Pronoun</li>
+        <li>Verb</li>
+        <li>Adjective</li>
+        <li>Adverb</li>
+        <li>Preposition</li>
+        <li>Conjunction</li>
+        <li>Interjection</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>3. Vocabulary</h3>
+      <ul>
+        <li>Daily Use Words</li>
+        <li>Family, School, Office</li>
+        <li>Food, Fruits & Vegetables</li>
+        <li>Animals, Colors, Body Parts</li>
+        <li>Clothes, Weather, Transport</li>
+        <li>Jobs, Countries & Nationalities</li>
+        <li>Numbers, Days & Months</li>
+        <li>Time & Dates</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>4. Grammar</h3>
+      <ul>
+        <li>Articles (A, An, The)</li>
+        <li>Singular & Plural</li>
+        <li>Countable & Uncountable Nouns</li>
+        <li>Gender, Possessives</li>
+        <li>Subject & Predicate</li>
+        <li>Subject-Verb Agreement</li>
+        <li>Helping, Main & Modal Verbs</li>
+        <li>Tenses (12)</li>
+        <li>Active & Passive Voice</li>
+        <li>Direct & Indirect Speech</li>
+        <li>Conditionals, Question Tags</li>
+        <li>Relative Clauses, Comparisons</li>
+        <li>Gerunds & Infinitives</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>5. Tenses (12)</h3>
+      <ul>
+        <li>Present Simple, Continuous, Perfect, Perfect Continuous</li>
+        <li>Past Simple, Continuous, Perfect, Perfect Continuous</li>
+        <li>Future Simple, Continuous, Perfect, Perfect Continuous</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>6. Sentence Structure</h3>
+      <ul>
+        <li>SVO Pattern</li>
+        <li>Positive, Negative, Interrogative</li>
+        <li>WH & Yes/No Questions</li>
+        <li>Short Answers</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>7. Punctuation</h3>
+      <ul>
+        <li>Full Stop, Comma, Question Mark</li>
+        <li>Exclamation, Colon, Semicolon</li>
+        <li>Apostrophe, Quotation Marks</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>8. Reading Skills</h3>
+      <ul>
+        <li>Letters, Words, Sentences</li>
+        <li>Paragraphs, Stories</li>
+        <li>Newspaper, Books</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>9. Writing Skills</h3>
+      <ul>
+        <li>Handwriting, Sentence Writing</li>
+        <li>Paragraphs, Essays</li>
+        <li>Letters, Emails, Applications</li>
+        <li>Reports</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>10. Speaking Skills</h3>
+      <ul>
+        <li>Self Introduction</li>
+        <li>Daily Conversation</li>
+        <li>Asking & Answering Questions</li>
+        <li>Pronunciation, Fluency</li>
+        <li>Public Speaking</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>11. Listening Skills</h3>
+      <ul>
+        <li>English Songs</li>
+        <li>Podcasts, News</li>
+        <li>Movies, Cartoons</li>
+        <li>Conversations</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>12. Pronunciation</h3>
+      <ul>
+        <li>Letter Sounds</li>
+        <li>Word & Sentence Stress</li>
+        <li>Silent Letters</li>
+        <li>Linking Words</li>
+        <li>Intonation</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>13. Daily Practice</h3>
+      <ul>
+        <li>20 New Words</li>
+        <li>10 Sentences</li>
+        <li>30 Minutes Reading</li>
+        <li>30 Minutes Listening</li>
+        <li>20 Minutes Speaking</li>
+        <li>15 Minutes Writing</li>
+        <li>Grammar Practice</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>14. Advanced English</h3>
+      <ul>
+        <li>Idioms, Phrases, Collocations</li>
+        <li>Proverbs, Synonyms, Antonyms</li>
+        <li>Phrasal Verbs</li>
+        <li>Business English</li>
+        <li>Formal & Informal English</li>
+        <li>Best Learning Order: Alphabet → Parts of Speech → Vocabulary → Sentence Structure → Grammar → Tenses → Reading → Writing → Listening → Speaking → Pronunciation → Advanced English</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+  <section id="register">
+    <h2>Student Registration</h2>
+    <form onsubmit="sendWhatsApp(event)">
+      <input type="text" id="name" placeholder="Full Name" required>
+        <input type="text" id="Father Name" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email Address" required>
+      <input type="tel" id="phone" placeholder="Phone Number" required>
+      <input type="number" id="age" placeholder="Age" required>
+      <input type="text" id="City" placeholder="Preferred Learning Time" required>
+      <button type="submit">Register Now</button>
+    </form>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p style="text-align:center;">📞 WhatsApp: 03083500829</p>
+    <p style="text-align:center;">📧 Email: jatoihassan009@gmail.com</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Learn English Fast. All rights reserved.</p>
+  </footer>
+
+  <!-- Particle.js Script -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80 },
+        "size": { "value": 3 },
+        "move": { "speed": 2 },
+        "line_linked": { "enable": true, "color": "#00f2fe" },
+        "color": { "value": "#ffffff" }
+      }
+    });
+
+    function sendWhatsApp(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const age = document.getElementById('age').value;
+      const time = document.getElementById('time').value;
+
+      const message = `New Registration:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nAge: ${age}\nPreferred Time: ${time}`;
+      const whatsappUrl = `https://wa.me/923083500829?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+  </script>
+
+</body>
+</html>
+
 
