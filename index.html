@@ -1,354 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learn English Fast</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #0f2027;
-      color: #fff;
-      overflow-x: hidden;
-    }
-
-    /* Particle Canvas */
-    #particles-js {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      top: 0;
-      left: 0;
-    }
-
-    /* Typing Animation */
-    .typing {
-      font-size: 2.5em;
-      background: linear-gradient(90deg, #00f2fe, #4facfe, #764ba2);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      border-right: 3px solid #00f2fe;
-      white-space: nowrap;
-      overflow: hidden;
-      width: 0;
-      animation: typing 5s steps(30, end) forwards, blink 0.7s infinite;
-    }
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-
-    header {
-      text-align: center;
-      padding: 60px 20px;
-    }
-    header img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-      margin-bottom: 20px;
-    }
-    header p {
-      font-size: 1.2em;
-      opacity: 0.8;
-      margin-top: 20px;
-    }
-
-    nav {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      display: flex;
-      justify-content: center;
-      padding: 15px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav a {
-      margin: 0 20px;
-      text-decoration: none;
-      color: #00f2fe;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: #4facfe;
-    }
-
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    section h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #00f2fe;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-    }
-    .card {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(15px);
-      border-radius: 15px;
-      padding: 25px;
-      text-align: center;
-      transition: transform 0.4s, box-shadow 0.4s;
-    }
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 20px rgba(0,0,0,0.5);
-    }
-
-    form {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(15px);
-      padding: 30px;
-      border-radius: 15px;
-    }
-    input, button {
-      width: 100%;
-      padding: 14px;
-      margin: 12px 0;
-      border-radius: 10px;
-      border: none;
-      font-size: 1em;
-    }
-    input {
-      background: rgba(255,255,255,0.2);
-      color: #fff;
-    }
-    button {
-      background: linear-gradient(135deg, #00f2fe, #4facfe);
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    button:hover {
-      background: linear-gradient(135deg, #764ba2, #00f2fe);
-    }
-
-    footer {
-      background: #111;
-      text-align: center;
-      padding: 25px;
-      font-size: 0.9em;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sindhi English Grammar School - Registration & Courses</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        oxford: {
+                            dark: '#0B192C',
+                            navy: '#1E3E62',
+                            gold: '#E6B325',
+                            light: '#F5F7F8'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body class="bg-oxford-light text-gray-800 font-sans antialiased min-h-screen">
 
-  <!-- Particle Background -->
-  <div id="particles-js"></div>
-
-  <header>
-    <!-- Oxford Image -->
-    <img src="https://i.ibb.co/j2P2wQb/university-of-oxford1.webp" alt="University of Oxford">
-    
-    <!-- Typing Headline -->
-    <h1 class="typing">Master English in One Month!</h1>
-    <p>Grammar • Vocabulary • Tenses • Speech • Synonyms & Antonyms</p>
-  </header>
-
-  <nav>
-    <a href="#about">About</a>
-    <a href="#features">Features</a>
-    <a href="#register">Register</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <section id="about">
-    <h2>About Us</h2>
-    <p style="text-align:center;">
-      We provide a simple, clear, and effective way to learn English. Our lessons are structured to make learning easy and enjoyable for students of all levels.
-    </p>
-  </section>
-
-<section id="features">
-  <h2>Features</h2>
-  <div class="features">
-
-    <div class="card">
-      <h3>📘 English Alphabet</h3>
-      <ul>
-        <li>A–Z Letters</li>
-        <li>Capital & Small Letters</li>
-        <li>Vowels & Consonants</li>
-      </ul>
+    <!-- Top Announcement Bar -->
+    <div class="bg-oxford-dark text-white text-[10px] sm:text-xs py-2 px-4 text-center font-medium tracking-wide border-b border-gray-800">
+        🌐 MULTILINGUAL LEARNING CENTER: ENGLISH • URDU • SINDHI
     </div>
 
-    <div class="card">
-      <h3>📝 Parts of Speech</h3>
-      <ul>
-        <li>Noun, Pronoun, Verb</li>
-        <li>Adjective, Adverb</li>
-        <li>Preposition, Conjunction, Interjection</li>
-      </ul>
+    <!-- Main Profile Container (Facebook Layout Style) -->
+    <div class="max-w-4xl mx-auto bg-white shadow-md rounded-b-xl overflow-hidden">
+        
+        <!-- Facebook Style Cover Photo Section -->
+        <div class="relative w-full aspect-[3/1] sm:h-64 bg-oxford-dark">
+            <!-- Provided Cover Image Link -->
+            <a href="https://ibb.co/zWhWs6qs" target="_blank" class="block w-full h-full">
+                <img src="https://i.ibb.co/ds0sBm8B/1000026523.png" alt="School Cover" class="w-full h-full object-cover">
+            </a>
+
+            <!-- Camera Badge Icon mimicking FB -->
+            <button class="absolute bottom-3 right-3 bg-black/60 text-white p-2 rounded-full sm:rounded-md sm:px-3 sm:py-1.5 text-xs font-semibold shadow backdrop-blur-sm hover:bg-black/80 flex items-center space-x-1.5">
+                <i class="fas fa-camera"></i>
+                <span class="hidden sm:inline">Edit Cover</span>
+            </button>
+        </div>
+
+        <!-- Profile Picture Container (Positioned exactly like Facebook profile layout) -->
+        <div class="relative px-4 pb-4 border-b border-gray-100">
+            <div class="flex flex-col sm:flex-row items-center sm:items-end sm:space-x-6 -mt-16 sm:-mt-20 mb-4 sm:mb-0 text-center sm:text-left z-10 relative">
+                
+                <!-- Provided Profile Image Link -->
+                <div class="relative inline-block">
+                    <a href="https://ibb.co/j9pywDqF" target="_blank" class="block w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-white bg-white shadow-xl overflow-hidden group">
+                        <img src="https://i.ibb.co/V0KgCTb8/LNmih3ug6-YZufq-NSHh52m-D.jpg" alt="School Profile" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    </a>
+                    <!-- Small camera icon overlay on profile picture -->
+                    <button class="absolute bottom-1 right-2 bg-gray-200 text-gray-700 p-2 rounded-full shadow-md border border-white hover:bg-gray-300">
+                        <i class="fas fa-camera text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Title & Text next to profile image -->
+                <div class="mt-4 sm:mt-0 sm:mb-4 flex-1">
+                    <h2 class="text-2xl sm:text-3xl font-black text-oxford-dark tracking-tight leading-tight">
+                        Sindhi English Grammar School
+                    </h2>
+                    <!-- Changed friends to 100K followers -->
+                    <p class="text-gray-500 font-bold text-sm mt-1 hover:underline cursor-pointer">
+                        <i class="fas fa-rss text-blue-500 mr-1"></i>100K followers
+                    </p>
+                    <div class="flex items-center justify-center sm:justify-start space-x-2 text-xs text-gray-500 mt-1 font-medium">
+                        <i class="fas fa-map-marker-alt text-red-500"></i>
+                        <span>Sukkur, Sindh, Pakistan</span>
+                    </div>
+                </div>
+
+                <!-- Quick Action Buttons -->
+                <div class="flex space-x-2 justify-center w-full sm:w-auto mt-4 sm:mt-0 sm:mb-4">
+                    <a href="#registerFormSection" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-2.5 rounded-lg flex items-center space-x-2 text-sm shadow transition-all duration-200 flex-1 sm:flex-none justify-center">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Apply Admission</span>
+                    </a>
+                    <button class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold px-4 py-2.5 rounded-lg text-sm flex items-center space-x-1">
+                        <i class="fab fa-whatsapp text-emerald-600 text-base"></i>
+                        <span class="hidden sm:inline">Support Desk</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
     </div>
 
-    <div class="card">
-      <h3>🔤 Vocabulary</h3>
-      <ul>
-        <li>Daily Use Words</li>
-        <li>Family, School, Office</li>
-        <li>Food, Animals, Colors</li>
-        <li>Jobs, Countries, Numbers</li>
-      </ul>
-    </div>
+    <!-- Main Content Layout Area -->
+    <main id="registerFormSection" class="max-w-4xl mx-auto mt-6 px-3 sm:px-0 pb-16">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+            
+            <!-- Left Side: Admission Info & Details -->
+            <div class="md:col-span-4 space-y-4">
+                <!-- Fee Details Card -->
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-200">
+                    <h4 class="text-[10px] uppercase font-bold tracking-widest text-gray-400 mb-1">Official Package</h4>
+                    <h3 class="text-lg font-bold text-oxford-navy">Admission Details</h3>
+                    
+                    <div class="my-4 p-4 bg-oxford-light rounded-xl border border-gray-100">
+                        <span class="text-xs text-gray-500 block uppercase font-medium">Total Course Fee</span>
+                        <div class="flex items-baseline mt-0.5">
+                            <span class="text-3xl font-black text-oxford-dark">1000 RS</span>
+                        </div>
+                    </div>
 
-    <div class="card">
-      <h3>⚙️ Grammar</h3>
-      <ul>
-        <li>Articles, Singular & Plural</li>
-        <li>Subject-Verb Agreement</li>
-        <li>Helping & Modal Verbs</li>
-        <li>Active & Passive Voice</li>
-        <li>Direct & Indirect Speech</li>
-      </ul>
-    </div>
+                    <ul class="text-xs text-gray-600 space-y-2.5">
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-check-circle text-emerald-600 mt-0.5"></i>
+                            <span>Direct registration to WhatsApp desk</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-check-circle text-emerald-600 mt-0.5"></i>
+                            <span>Full Premium English Learning access</span>
+                        </li>
+                    </ul>
+                </div>
 
-    <div class="card">
-      <h3>⏳ Tenses (12)</h3>
-      <ul>
-        <li>Present, Past, Future</li>
-        <li>Simple, Continuous, Perfect</li>
-        <li>Perfect Continuous</li>
-      </ul>
-    </div>
+                <!-- About/Bio Box -->
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-200 text-xs text-gray-600 space-y-3">
+                    <h3 class="font-bold text-sm text-oxford-dark border-b border-gray-100 pb-2">About School</h3>
+                    <p class="leading-relaxed">Join the premier institute specializing in functional English fluency, structural Urdu literature, and rich Sindhi linguistic mastery.</p>
+                    <div class="flex items-center space-x-2 text-gray-700">
+                        <i class="fas fa-graduation-cap text-gray-400 w-4 text-center"></i>
+                        <span>Session: <strong class="text-oxford-navy">2026</strong></span>
+                    </div>
+                </div>
+            </div>
 
-    <div class="card">
-      <h3>📖 Sentence Structure</h3>
-      <ul>
-        <li>SVO Pattern</li>
-        <li>Positive & Negative</li>
-        <li>Questions & Short Answers</li>
-      </ul>
-    </div>
+            <!-- Right Side: English Courses Details & Admission Form -->
+            <div class="md:col-span-8 space-y-6">
+                
+                <!-- NEW: English Course Curriculum Details Section -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <div class="mb-4">
+                        <h2 class="text-xl font-black text-oxford-dark flex items-center space-x-2">
+                            <i class="fas fa-book-open text-blue-600"></i>
+                            <span>Our Premium English Course Modules</span>
+                        </h2>
+                        <p class="text-xs text-gray-500 mt-1">We cover all essential modules to build master-level fluency and analytical skills.</p>
+                    </div>
 
-    <div class="card">
-      <h3>✒️ Writing Skills</h3>
-      <ul>
-        <li>Paragraphs & Essays</li>
-        <li>Letters & Emails</li>
-        <li>Applications & Reports</li>
-      </ul>
-    </div>
+                    <!-- Course Grid Box -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                        <div class="p-3 bg-gray-50 rounded-lg border border-gray-100 flex items-start space-x-3">
+                            <div class="bg-blue-100 text-blue-600 p-2 rounded-md"><i class="fas fa-spell-check text-sm"></i></div>
+                            <div>
+                                <h4 class="font-bold text-xs sm:text-sm text-oxford-dark">English Grammar Essentials</h4>
+                                <p class="text-[11px] text-gray-500 mt-0.5">Parts of speech, voice, narration, clauses, and structural accuracy.</p>
+                            </div>
+                        </div>
 
-    <div class="card">
-      <h3>🗣️ Speaking Skills</h3>
-      <ul>
-        <li>Self Introduction</li>
-        <li>Daily Conversation</li>
-        <li>Pronunciation & Fluency</li>
-        <li>Public Speaking</li>
-      </ul>
-    </div>
+                        <div class="p-3 bg-gray-50 rounded-lg border border-gray-100 flex items-start space-x-3">
+                            <div class="bg-amber-100 text-amber-600 p-2 rounded-md"><i class="fas fa-history text-sm"></i></div>
+                            <div>
+                                <h4 class="font-bold text-xs sm:text-sm text-oxford-dark">Tenses & Timeline Masterclass</h4>
+                                <p class="text-[11px] text-gray-500 mt-0.5">Complete mastery over Present, Past, and Future formats with active usage.</p>
+                            </div>
+                        </div>
 
-    <div class="card">
-      <h3>🎧 Listening Skills</h3>
-      <ul>
-        <li>Songs & Podcasts</li>
-        <li>News & Movies</li>
-        <li>Conversations</li>
-      </ul>
-    </div>
+                        <div class="p-3 bg-gray-50 rounded-lg border border-gray-100 flex items-start space-x-3">
+                            <div class="bg-emerald-100 text-emerald-600 p-2 rounded-md"><i class="fas fa-comments text-sm"></i></div>
+                            <div>
+                                <h4 class="font-bold text-xs sm:text-sm text-oxford-dark">English Conversation Fluency</h4>
+                                <p class="text-[11px] text-gray-500 mt-0.5">Daily dialogue practice, accent modification, and hesitation removal drills.</p>
+                            </div>
+                        </div>
 
-    <div class="card">
-      <h3>🔊 Pronunciation</h3>
-      <ul>
-        <li>Letter Sounds</li>
-        <li>Word & Sentence Stress</li>
-        <li>Silent Letters</li>
-        <li>Intonation</li>
-      </ul>
-    </div>
+                        <div class="p-3 bg-gray-50 rounded-lg border border-gray-100 flex items-start space-x-3">
+                            <div class="bg-purple-100 text-purple-600 p-2 rounded-md"><i class="fas fa-language text-sm"></i></div>
+                            <div>
+                                <h4 class="font-bold text-xs sm:text-sm text-oxford-dark">Vocabulary & Idioms</h4>
+                                <p class="text-[11px] text-gray-500 mt-0.5">Advanced vocabulary, proverbs, and phrasal verbs for impressive speech.</p>
+                            </div>
+                        </div>
 
-    <div class="card">
-      <h3>📅 Daily Practice</h3>
-      <ul>
-        <li>20 New Words</li>
-        <li>10 Sentences</li>
-        <li>30 Min Reading & Listening</li>
-        <li>20 Min Speaking, 15 Min Writing</li>
-      </ul>
-    </div>
+                        <div class="p-3 bg-gray-50 rounded-lg border border-gray-100 flex items-start space-x-3">
+                            <div class="bg-red-100 text-red-600 p-2 rounded-md"><i class="fas fa-briefcase text-sm"></i></div>
+                            <div>
+                                <h4 class="font-bold text-xs sm:text-sm text-oxford-dark">Business Communication</h4>
+                                <p class="text-[11px] text-gray-500 mt-0.5">Professional email drafting, presentation mechanics, and interview prep.</p>
+                            </div>
+                        </div>
 
-    <div class="card">
-      <h3>🚀 Advanced English</h3>
-      <ul>
-        <li>Idioms & Phrases</li>
-        <li>Synonyms & Antonyms</li>
-        <li>Phrasal Verbs</li>
-        <li>Business English</li>
-        <li>Formal & Informal English</li>
-      </ul>
-    </div>
+                        <div class="p-3 bg-gray-50 rounded-lg border border-gray-100 flex items-start space-x-3">
+                            <div class="bg-indigo-100 text-indigo-600 p-2 rounded-md"><i class="fas fa-pen-fancy text-sm"></i></div>
+                            <div>
+                                <h4 class="font-bold text-xs sm:text-sm text-oxford-dark">Creative Writing Lab</h4>
+                                <p class="text-[11px] text-gray-500 mt-0.5">Advanced essay structures, precise summaries, and academic paper logic.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-  </div>
-</section>
+                <!-- Digital Admission Form Panel -->
+                <div class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-gray-200">
+                    <div class="mb-5">
+                        <h2 class="text-xl sm:text-2xl font-black text-oxford-dark">Digital Admission Form</h2>
+                        <p class="text-xs sm:text-sm text-gray-500 mt-0.5">Fill out the form. Clicking submit will automatically format your dynamic message text for official WhatsApp processing.</p>
+                    </div>
 
+                    <form id="oxfordRegForm" onsubmit="processRegistration(event)" class="space-y-4">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="studentName" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">Student Full Name *</label>
+                                <input type="text" id="studentName" required class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition" placeholder="Enter full name">
+                            </div>
+                            <div>
+                                <label for="studentPhone" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">WhatsApp Mobile Number *</label>
+                                <input type="tel" id="studentPhone" required class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition" placeholder="e.g., 03001234567">
+                            </div>
+                        </div>
 
-  <section id="register">
-    <h2>Student Registration</h2>
-    <form onsubmit="sendWhatsApp(event)">
-      <input type="text" id="name" placeholder="Full Name" required>
-        <input type="text" id="Father Name" placeholder="Father Name" required>
-      <input type="email" id="email" placeholder="Email Address" required>
-      <input type="tel" id="phone" placeholder="Phone Number" required>
-      <input type="number" id="age" placeholder="Age" required>
-      <input type="text" id="City" placeholder="Preferred Learning Time" required>
-      <button type="submit">Register Now</button>
-    </form>
-  </section>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1.5">Select Primary Language Track *</label>
+                            <div class="grid grid-cols-3 gap-2">
+                                <label class="border border-gray-300 rounded-lg p-2.5 flex items-center justify-center cursor-pointer hover:bg-gray-50 text-xs sm:text-sm font-semibold select-none">
+                                    <input type="radio" name="languageTrack" value="English" checked class="mr-1.5 accent-oxford-navy"> English
+                                </label>
+                                <label class="border border-gray-300 rounded-lg p-2.5 flex items-center justify-center cursor-pointer hover:bg-gray-50 text-xs sm:text-sm font-semibold select-none">
+                                    <input type="radio" name="languageTrack" value="Urdu" class="mr-1.5 accent-oxford-navy"> Urdu
+                                </label>
+                                <label class="border border-gray-300 rounded-lg p-2.5 flex items-center justify-center cursor-pointer hover:bg-gray-50 text-xs sm:text-sm font-semibold select-none">
+                                    <input type="radio" name="languageTrack" value="Sindhi" class="mr-1.5 accent-oxford-navy"> Sindhi
+                                </label>
+                            </div>
+                        </div>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p style="text-align:center;">📞 WhatsApp: 03083500829</p>
-    <p style="text-align:center;">📧 Email: jatoihassan009@gmail.com</p>
-  </section>
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="studentCity" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">City / Region *</label>
+                                <input type="text" id="studentCity" required class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition" placeholder="e.g., Sukkur">
+                            </div>
+                            <div>
+                                <label for="studentEducation" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">Last Education Level *</label>
+                                <input type="text" id="studentEducation" required class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition" placeholder="e.g., Matric / Intermediate">
+                            </div>
+                        </div>
 
-  <footer>
-    <p>&copy; 2026 Learn English Fast. All rights reserved.</p>
-  </footer>
+                        <div class="pt-3">
+                            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl shadow transition flex items-center justify-center space-x-2 tracking-wide text-sm">
+                                <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24">
+                                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.002-2.637-1.023-5.116-2.887-6.981-1.864-1.865-4.343-2.887-6.984-2.888-5.439 0-9.865 4.42-9.869 9.865-.001 1.748.461 3.453 1.337 4.974l-.984 3.595 3.698-.972zm12.312-7.07c-.312-.156-1.85-.912-2.131-1.013-.282-.102-.487-.153-.692.156-.205.308-.795 1.013-.974 1.218-.179.205-.359.231-.672.074-1.922-.962-3.142-1.741-4.394-3.89-.331-.569.331-.528.949-1.764.102-.206.051-.385-.026-.54-.077-.154-.692-1.667-.949-2.283-.249-.603-.503-.521-.692-.531-.179-.01-.384-.012-.59-.012s-.538.077-.82.385c-.282.309-1.077 1.051-1.077 2.565 0 1.513 1.102 2.975 1.256 3.18.154.205 2.169 3.313 5.255 4.643.734.316 1.307.504 1.753.646.738.234 1.41.201 1.94.122.592-.088 1.85-.757 2.107-1.488.257-.731.257-1.359.18-1.487-.077-.129-.282-.205-.595-.361z"/>
+                                </svg>
+                                <span>Send Registration to WhatsApp</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
 
-  <!-- Particle.js Script -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": { "value": 80 },
-        "size": { "value": 3 },
-        "move": { "speed": 2 },
-        "line_linked": { "enable": true, "color": "#00f2fe" },
-        "color": { "value": "#ffffff" }
-      }
-    });
+            </div>
+        </div>
+    </main>
 
-    function sendWhatsApp(event) {
-      event.preventDefault();
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const phone = document.getElementById('phone').value;
-      const age = document.getElementById('age').value;
-      const time = document.getElementById('time').value;
+    <!-- Footer -->
+    <footer class="bg-oxford-dark text-gray-400 py-6 text-center text-xs mt-auto">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="font-bold text-gray-300 tracking-wide">SINDHI ENGLISH GRAMMAR SCHOOL</p>
+            <p class="mt-1.5 text-gray-500">&copy; 2026 Academic Portal. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-      const message = `New Registration:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nAge: ${age}\nPreferred Time: ${time}`;
-      const whatsappUrl = `https://wa.me/923083500829?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, '_blank');
-    }
-  </script>
+    <!-- Form Dispatch Script -->
+    <script>
+        function processRegistration(event) {
+            event.preventDefault();
 
+            // Field Values Retrieval
+            const name = document.getElementById('studentName').value;
+            const phone = document.getElementById('studentPhone').value;
+            const city = document.getElementById('studentCity').value;
+            const education = document.getElementById('studentEducation').value;
+            const selectedTrack = document.querySelector('input[name="languageTrack"]:checked').value;
+            
+            // Script Configurations
+            const recipientNumber = "03083500829";
+            const schoolName = "SINDHI ENGLISH GRAMMAR SCHOOL";
+            const fee = "1000 RS";
+
+            // Structured Template text formulation
+            const finalMessage = `🏫 *${schoolName}* 🏫\n` +
+                                 `📝 *ONLINE REGISTRATION FORM*\n\n` +
+                                 `👤 *Student Name:* ${name}\n` +
+                                 `👤 *Student Father Name:* ${Father Name}\n` +
+                                 `📞 *WhatsApp No:* ${phone}\n` +
+                                 `🏙️ *City / Location:* ${city}\n` +
+                                 `🎓 *Education:* ${education}\n` +
+                                 `📚 *Selected Course:* ${selectedTrack} Language\n` +
+                                 `-----------------------------\n` +
+                                 `💰 *Course Fee Amount:* ${fee}\n\n` +
+                                 `Please process my admission request and forward the fee collection details.`;
+
+            // Formatting country code international injection structure
+            let cleanPhone = recipientNumber.trim();
+            if (cleanPhone.startsWith('0')) {
+                cleanPhone = '92' + cleanPhone.substring(1);
+            }
+
+            // Window Object dispatch allocation
+            const whatsappApiUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(finalMessage)}`;
+            window.open(whatsappApiUrl, '_blank');
+        }
+    </script>
 </body>
 </html>
-
-
