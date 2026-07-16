@@ -200,9 +200,29 @@
                         </div>
                     </div>
                 </div>
-<!-- Additional Student Information -->
+                <!-- Student Information -->
 
 <div class="grid sm:grid-cols-2 gap-4">
+
+    <!-- Student Name -->
+    <div>
+        <label for="studentName" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">
+            Student Full Name *
+        </label>
+        <input type="text" id="studentName" required
+            class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition"
+            placeholder="Enter Full Name">
+    </div>
+
+    <!-- Father's Name -->
+    <div>
+        <label for="fatherName" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">
+            Father's Name *
+        </label>
+        <input type="text" id="fatherName" required
+            class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition"
+            placeholder="Enter Father's Name">
+    </div>
 
     <!-- Age -->
     <div>
@@ -211,7 +231,7 @@
         </label>
         <input type="number" id="studentAge" required
             class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition"
-            placeholder="Enter your age">
+            placeholder="Enter Age">
     </div>
 
     <!-- Gender -->
@@ -224,38 +244,47 @@
             <option value="">Select Gender</option>
             <option>Male</option>
             <option>Female</option>
-            <option>Other</option>
         </select>
     </div>
 
-    <!-- Father Name -->
+    <!-- WhatsApp -->
     <div>
-        <label for="fatherName" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">
-            Father's Name *
+        <label for="studentPhone" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">
+            WhatsApp Number *
         </label>
-        <input type="text" id="fatherName" required
+        <input type="tel" id="studentPhone" required
             class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition"
-            placeholder="Enter father's name">
+            placeholder="03XXXXXXXXX">
     </div>
 
-    <!-- Class -->
+    <!-- Current Class -->
     <div>
         <label for="studentClass" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">
             Current Class *
         </label>
         <input type="text" id="studentClass" required
             class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition"
-            placeholder="e.g. 10th, 1st Year, BS 2nd Semester">
+            placeholder="e.g. 10th, 1st Year, BS">
     </div>
 
-    <!-- School / College / University -->
-    <div class="sm:col-span-2">
+    <!-- Education -->
+    <div>
+        <label for="studentEducation" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">
+            Education Level *
+        </label>
+        <input type="text" id="studentEducation" required
+            class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition"
+            placeholder="Matric / Intermediate / Graduate">
+    </div>
+
+    <!-- School/College/University -->
+    <div>
         <label for="studentInstitute" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">
             School / College / University *
         </label>
         <input type="text" id="studentInstitute" required
             class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition"
-            placeholder="Enter institute name">
+            placeholder="Institute Name">
     </div>
 
     <!-- Village -->
@@ -265,7 +294,7 @@
         </label>
         <input type="text" id="studentVillage" required
             class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition"
-            placeholder="Enter village">
+            placeholder="Village Name">
     </div>
 
     <!-- City -->
@@ -275,7 +304,7 @@
         </label>
         <input type="text" id="studentCity" required
             class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition"
-            placeholder="Enter city">
+            placeholder="City">
     </div>
 
     <!-- Tehsil -->
@@ -285,7 +314,7 @@
         </label>
         <input type="text" id="studentTehsil" required
             class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition"
-            placeholder="Enter tehsil">
+            placeholder="Tehsil">
     </div>
 
     <!-- District -->
@@ -295,11 +324,10 @@
         </label>
         <input type="text" id="studentDistrict" required
             class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition"
-            placeholder="Enter district">
+            placeholder="District">
     </div>
 
 </div>
-
 
     <!-- Footer -->
     <footer class="bg-oxford-dark text-gray-400 py-6 text-center text-xs mt-auto">
