@@ -200,66 +200,106 @@
                         </div>
                     </div>
                 </div>
+<!-- Additional Student Information -->
 
-                <!-- Digital Admission Form Panel -->
-                <div class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-gray-200">
-                    <div class="mb-5">
-                        <h2 class="text-xl sm:text-2xl font-black text-oxford-dark">Digital Admission Form</h2>
-                        <p class="text-xs sm:text-sm text-gray-500 mt-0.5">Fill out the form. Clicking submit will automatically format your dynamic message text for official WhatsApp processing.</p>
-                    </div>
+<div class="grid sm:grid-cols-2 gap-4">
 
-                    <form id="oxfordRegForm" onsubmit="processRegistration(event)" class="space-y-4">
-                        <div class="grid sm:grid-cols-2 gap-4">
-                            <div>
-                                <label for="studentName" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">Student Full Name *</label>
-                                <input type="text" id="studentName" required class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition" placeholder="Enter full name">
-                            </div>
-                            <div>
-                                <label for="studentPhone" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">WhatsApp Mobile Number *</label>
-                                <input type="tel" id="studentPhone" required class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition" placeholder="e.g., 03001234567">
-                            </div>
-                        </div>
+    <!-- Age -->
+    <div>
+        <label for="studentAge" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">
+            Age *
+        </label>
+        <input type="number" id="studentAge" required
+            class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition"
+            placeholder="Enter your age">
+    </div>
 
-                        <div>
-                            <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1.5">Select Primary Language Track *</label>
-                            <div class="grid grid-cols-3 gap-2">
-                                <label class="border border-gray-300 rounded-lg p-2.5 flex items-center justify-center cursor-pointer hover:bg-gray-50 text-xs sm:text-sm font-semibold select-none">
-                                    <input type="radio" name="languageTrack" value="English" checked class="mr-1.5 accent-oxford-navy"> English
-                                </label>
-                                <label class="border border-gray-300 rounded-lg p-2.5 flex items-center justify-center cursor-pointer hover:bg-gray-50 text-xs sm:text-sm font-semibold select-none">
-                                    <input type="radio" name="languageTrack" value="Urdu" class="mr-1.5 accent-oxford-navy"> Urdu
-                                </label>
-                                <label class="border border-gray-300 rounded-lg p-2.5 flex items-center justify-center cursor-pointer hover:bg-gray-50 text-xs sm:text-sm font-semibold select-none">
-                                    <input type="radio" name="languageTrack" value="Sindhi" class="mr-1.5 accent-oxford-navy"> Sindhi
-                                </label>
-                            </div>
-                        </div>
+    <!-- Gender -->
+    <div>
+        <label for="studentGender" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">
+            Gender *
+        </label>
+        <select id="studentGender" required
+            class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition">
+            <option value="">Select Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+    </div>
 
-                        <div class="grid sm:grid-cols-2 gap-4">
-                            <div>
-                                <label for="studentCity" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">City / Region *</label>
-                                <input type="text" id="studentCity" required class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition" placeholder="e.g., Sukkur">
-                            </div>
-                            <div>
-                                <label for="studentEducation" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">Last Education Level *</label>
-                                <input type="text" id="studentEducation" required class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition" placeholder="e.g., Matric / Intermediate">
-                            </div>
-                        </div>
+    <!-- Father Name -->
+    <div>
+        <label for="fatherName" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">
+            Father's Name *
+        </label>
+        <input type="text" id="fatherName" required
+            class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition"
+            placeholder="Enter father's name">
+    </div>
 
-                        <div class="pt-3">
-                            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl shadow transition flex items-center justify-center space-x-2 tracking-wide text-sm">
-                                <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24">
-                                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.002-2.637-1.023-5.116-2.887-6.981-1.864-1.865-4.343-2.887-6.984-2.888-5.439 0-9.865 4.42-9.869 9.865-.001 1.748.461 3.453 1.337 4.974l-.984 3.595 3.698-.972zm12.312-7.07c-.312-.156-1.85-.912-2.131-1.013-.282-.102-.487-.153-.692.156-.205.308-.795 1.013-.974 1.218-.179.205-.359.231-.672.074-1.922-.962-3.142-1.741-4.394-3.89-.331-.569.331-.528.949-1.764.102-.206.051-.385-.026-.54-.077-.154-.692-1.667-.949-2.283-.249-.603-.503-.521-.692-.531-.179-.01-.384-.012-.59-.012s-.538.077-.82.385c-.282.309-1.077 1.051-1.077 2.565 0 1.513 1.102 2.975 1.256 3.18.154.205 2.169 3.313 5.255 4.643.734.316 1.307.504 1.753.646.738.234 1.41.201 1.94.122.592-.088 1.85-.757 2.107-1.488.257-.731.257-1.359.18-1.487-.077-.129-.282-.205-.595-.361z"/>
-                                </svg>
-                                <span>Send Registration to WhatsApp</span>
-                            </button>
-                        </div>
-                    </form>
-                </div>
+    <!-- Class -->
+    <div>
+        <label for="studentClass" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">
+            Current Class *
+        </label>
+        <input type="text" id="studentClass" required
+            class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition"
+            placeholder="e.g. 10th, 1st Year, BS 2nd Semester">
+    </div>
 
-            </div>
-        </div>
-    </main>
+    <!-- School / College / University -->
+    <div class="sm:col-span-2">
+        <label for="studentInstitute" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">
+            School / College / University *
+        </label>
+        <input type="text" id="studentInstitute" required
+            class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition"
+            placeholder="Enter institute name">
+    </div>
+
+    <!-- Village -->
+    <div>
+        <label for="studentVillage" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">
+            Village *
+        </label>
+        <input type="text" id="studentVillage" required
+            class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition"
+            placeholder="Enter village">
+    </div>
+
+    <!-- City -->
+    <div>
+        <label for="studentCity" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">
+            City *
+        </label>
+        <input type="text" id="studentCity" required
+            class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition"
+            placeholder="Enter city">
+    </div>
+
+    <!-- Tehsil -->
+    <div>
+        <label for="studentTehsil" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">
+            Tehsil *
+        </label>
+        <input type="text" id="studentTehsil" required
+            class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition"
+            placeholder="Enter tehsil">
+    </div>
+
+    <!-- District -->
+    <div>
+        <label for="studentDistrict" class="block text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-1">
+            District *
+        </label>
+        <input type="text" id="studentDistrict" required
+            class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-oxford-navy outline-none text-sm transition"
+            placeholder="Enter district">
+    </div>
+
+</div>
+
 
     <!-- Footer -->
     <footer class="bg-oxford-dark text-gray-400 py-6 text-center text-xs mt-auto">
