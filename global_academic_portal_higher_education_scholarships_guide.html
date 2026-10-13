@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Academic Portal | Europe & Australia Universities & Scholarships</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#2563eb',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .dark .glass-header {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #334155;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen font-sans transition-colors duration-300 antialiased">
+
+    <header class="sticky top-0 z-40 w-full glass-header border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/20">
+                        <i class="fa-solid fa-graduation-cap text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-lg font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">EduGlobal</h1>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 -mt-1 font-medium">Universities & Scholarships Directory</p>
+                    </div>
+                </div>
+
+                <!-- Right Actions -->
+                <div class="flex items-center gap-3">
+                    <button id="themeToggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:inline"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <section class="relative rounded-3xl overflow-hidden mb-8 p-8 md:p-12 bg-gradient-to-r from-indigo-900 via-blue-900 to-slate-900 text-white shadow-2xl">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop')] bg-cover bg-center opacity-15"></div>
+            <div class="relative z-10 max-w-3xl">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/30 backdrop-blur-md text-blue-200 mb-4 border border-blue-400/30">
+                    <i class="fa-solid fa-award"></i> Europe & Australia Education Hub
+                </span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
+                    University Admission Links & Fully Funded Scholarships
+                </h2>
+                <p class="mt-3 text-slate-200 text-base sm:text-lg opacity-90 leading-relaxed">
+                    Direct access to official admission portals for top-ranked European and Australian universities, plus government and institutional scholarship applications.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-8 space-y-6">
+            <!-- Stats -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-2xl flex items-center gap-3 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-building-columns"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Top Universities</p>
+                        <p class="text-lg font-bold text-slate-800 dark:text-slate-100" id="uniCount">0</p>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-2xl flex items-center gap-3 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Scholarships</p>
+                        <p class="text-lg font-bold text-slate-800 dark:text-slate-100" id="scholarshipCount">0</p>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-2xl flex items-center gap-3 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-earth-europe"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Regions covered</p>
+                        <p class="text-lg font-bold text-slate-800 dark:text-slate-100">UK, EU, AUS & NZ</p>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-2xl flex items-center gap-3 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-link"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Direct Portals</p>
+                        <p class="text-lg font-bold text-slate-800 dark:text-slate-100">Verified Links</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls (Search + Tabs) -->
+            <div class="flex flex-col md:flex-row gap-4 justify-between items-center">
+                <!-- Search Box -->
+                <div class="relative w-full md:w-96">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    <input type="text" id="searchInput" placeholder="Search university, country, or scholarship..." 
+                        class="w-full pl-11 pr-4 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm transition-all">
+                </div>
+
+                <!-- Tabs -->
+                <div class="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 custom-scrollbar" id="tabGroup">
+                    <button onclick="setCategory('all')" id="tab-all" class="px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all border bg-blue-600 text-white border-blue-600 shadow-md">All Programs</button>
+                    <button onclick="setCategory('university')" id="tab-university" class="px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all border bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300">Universities & Admissions</button>
+                    <button onclick="setCategory('scholarship')" id="tab-scholarship" class="px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all border bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300">Major Scholarships</button>
+                    <button onclick="setCategory('australia')" id="tab-australia" class="px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all border bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300">Australia & Oceania</button>
+                    <button onclick="setCategory('europe')" id="tab-europe" class="px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all border bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300">Europe & UK</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="portalGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Dynamic Data Inserted via JS -->
+        </section>
+
+        <div id="noResults" class="hidden text-center py-16">
+            <div class="w-16 h-16 bg-slate-200 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-400">
+                <i class="fa-solid fa-graduation-cap text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-slate-700 dark:text-slate-200">No institutions or scholarships found</h3>
+            <p class="text-slate-500 text-sm mt-1">Try searching for a different keyword like "Australia", "DAAD", "Oxford", or "Master".</p>
+        </div>
+    </main>
+
+    <script>
+        // Data Store for Universities & Government Scholarships
+        const academicData = [
+            // --- Major Government & Flagship Scholarships ---
+            {
+                type: "scholarship",
+                region: "Europe",
+                title: "Erasmus Mundus Joint Masters",
+                country: "European Union (Multi-Country)",
+                flag: "🇪🇺",
+                badge: "Fully Funded EU Govt",
+                description: "Prestigious fully funded master's degree programs delivered jointly by multiple European universities.",
+                admissionLink: "https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en",
+                scholarshipLink: "https://erasmus-plus.ec.europa.eu/opportunities/opportunities-for-individuals/students/erasmus-mundus-joint-masters-scholarships"
+            },
+            {
+                type: "scholarship",
+                region: "Europe",
+                title: "DAAD Scholarships (Germany)",
+                country: "Germany",
+                flag: "🇩🇪",
+                badge: "German Govt Funded",
+                description: "Financial support for international postgraduate students, researchers, and PhD candidates across German universities.",
+                admissionLink: "https://www.daad.de/en/study-and-research-in-germany/courses-of-study-in-germany/",
+                scholarshipLink: "https://www.daad.de/en/study-and-research-in-germany/scholarships/"
+            },
+            {
+                type: "scholarship",
+                region: "Europe",
+                title: "Chevening Scholarships",
+                country: "United Kingdom",
+                flag: "🇬🇧",
+                badge: "UK Govt Fully Funded",
+                description: "UK government's global scholarship program offering full funding for one-year Master’s degrees at any UK university.",
+                admissionLink: "https://www.chevening.org/apply/",
+                scholarshipLink: "https://www.chevening.org/scholarships/"
+            },
+            {
+                type: "scholarship",
+                region: "Australia",
+                title: "Australia Awards Scholarships",
+                country: "Australia",
+                flag: "🇦🇺",
+                badge: "DFAT Govt Fully Funded",
+                description: "Long-term awards administered by the Department of Foreign Affairs and Trade for full-time study at participating Australian universities.",
+                admissionLink: "https://www.dfat.gov.au/people-to-people/australia-awards/australia-awards-scholarships",
+                scholarshipLink: "https://www.dfat.gov.au/people-to-people/australia-awards/how-to-apply-for-an-australia-awards-scholarship"
+            },
+            {
+                type: "scholarship",
+                region: "Australia",
+                title: "Research Training Program (RTP)",
+                country: "Australia",
+                flag: "🇦🇺",
+                badge: "Masters & PhD Funding",
+                description: "Australian government funded tuition fee offsets, stipends, and allowances for domestic & international postgraduate research students.",
+                admissionLink: "https://www.education.gov.au/research-block-grants/research-training-program",
+                scholarshipLink: "https://www.education.gov.au/research-training-program/frequently-asked-questions-students"
+            },
+            {
+                type: "scholarship",
+                region: "Europe",
+                title: "Swiss Government Excellence Scholarships",
+                country: "Switzerland",
+                flag: "🇨🇭",
+                badge: "Research & PhD Fully Funded",
+                description: "Scholarships awarded by the Federal Commission for Scholarships for Foreign Students for postgraduates and researchers.",
+                admissionLink: "https://www.sbfi.admin.ch/sbfi/en/home/education/scholarships-and-grants/swiss-government-excellence-scholarships.html",
+                scholarshipLink: "https://www.sbfi.admin.ch/sbfi/en/home/education/scholarships-and-grants/swiss-government-excellence-scholarships.html"
+            },
+
+            // --- Top European Universities ---
+            {
+                type: "university",
+                region: "Europe",
+                title: "University of Oxford",
+                country: "United Kingdom",
+                flag: "🇬🇧",
+                badge: "QS Top 5 Global",
+                description: "One of the oldest and highest-ranked universities in the world with world-renowned undergrad and postgrad degrees.",
+                admissionLink: "https://www.ox.ac.uk/admissions",
+                scholarshipLink: "https://www.ox.ac.uk/admissions/graduate/fees-and-funding/fees-funding-and-scholarship-search"
+            },
+            {
+                type: "university",
+                region: "Europe",
+                title: "University of Cambridge",
+                country: "United Kingdom",
+                flag: "🇬🇧",
+                badge: "QS Top 5 Global",
+                description: "World leading institution offering comprehensive study programs and Gates Cambridge Scholarships.",
+                admissionLink: "https://www.undergraduate.study.cam.ac.uk/apply",
+                scholarshipLink: "https://www.postgraduate.study.cam.ac.uk/funding"
+            },
+            {
+                type: "university",
+                region: "Europe",
+                title: "ETH Zurich",
+                country: "Switzerland",
+                flag: "🇨🇭",
+                badge: "Top STEM Europe",
+                description: "Leading European university for science, technology, engineering, and mathematics in Zurich.",
+                admissionLink: "https://ethz.ch/en/studies.html",
+                scholarshipLink: "https://ethz.ch/students/en/studies/financial/scholarships.html"
+            },
+            {
+                type: "university",
+                region: "Europe",
+                title: "Technical University of Munich (TUM)",
+                country: "Germany",
+                flag: "🇩🇪",
+                badge: "No Tuition Fees (Select)",
+                description: "Top-ranked German university in innovation, engineering, computer science, and life sciences.",
+                admissionLink: "https://www.tum.de/en/studies/application",
+                scholarshipLink: "https://www.tum.de/en/studies/fees-and-financial-aid/scholarships"
+            },
+            {
+                type: "university",
+                region: "Europe",
+                title: "PSL Research University / Sorbonne",
+                country: "France",
+                flag: "🇫🇷",
+                badge: "French Excellence",
+                description: "Top French research university delivering prestigious bachelor's, master's, and doctorate degrees.",
+                admissionLink: "https://psl.eu/en/education/admissions",
+                scholarshipLink: "https://psl.eu/en/education/scholarships-and-financial-support"
+            },
+            {
+                type: "university",
+                region: "Europe",
+                title: "University of Amsterdam (UvA)",
+                country: "Netherlands",
+                flag: "🇳🇱",
+                badge: "Top Dutch University",
+                description: "Leading research university in Western Europe offering a massive catalog of English-taught degree programs.",
+                admissionLink: "https://www.uva.nl/en/education/admissions/admissions.html",
+                scholarshipLink: "https://www.uva.nl/en/education/master-s/scholarships-and-tuition/scholarships-and-tuition.html"
+            },
+
+            // --- Top Australian Universities ---
+            {
+                type: "university",
+                region: "Australia",
+                title: "The University of Melbourne",
+                country: "Australia",
+                flag: "🇦🇺",
+                badge: "Go8 Member",
+                description: "Australia's top-ranked university offering Melbourne Graduate Scholarships and comprehensive research funding.",
+                admissionLink: "https://study.unimelb.edu.au/how-to-apply",
+                scholarshipLink: "https://scholarships.unimelb.edu.au/"
+            },
+            {
+                type: "university",
+                region: "Australia",
+                title: "The University of Sydney",
+                country: "Australia",
+                flag: "🇦🇺",
+                badge: "Go8 Member",
+                description: "Australia's first university offering Australia Awards, Sydney International Student Awards, and research support.",
+                admissionLink: "https://www.sydney.edu.au/study/how-to-apply.html",
+                scholarshipLink: "https://www.sydney.edu.au/scholarships/"
+            },
+            {
+                type: "university",
+                region: "Australia",
+                title: "Australian National University (ANU)",
+                country: "Australia",
+                flag: "🇦🇺",
+                badge: "Canberra Go8",
+                description: "Australia's national university specializing in global research, political science, engineering, and sciences.",
+                admissionLink: "https://www.anu.edu.au/study/apply",
+                scholarshipLink: "https://www.anu.edu.au/study/scholarships"
+            },
+            {
+                type: "university",
+                region: "Australia",
+                title: "UNSW Sydney",
+                country: "Australia",
+                flag: "🇦🇺",
+                badge: "Go8 Leader",
+                description: "Top Australian institution famous for engineering, technology, business, and innovation scholarships.",
+                admissionLink: "https://www.unsw.edu.au/study/how-to-apply",
+                scholarshipLink: "https://www.scholarships.unsw.edu.au/"
+            },
+            {
+                type: "university",
+                region: "Australia",
+                title: "University of Queensland (UQ)",
+                country: "Australia",
+                flag: "🇦🇺",
+                badge: "Brisbane Excellence",
+                description: "World renowned for science, medicine, technology, and extensive global student scholarship funds.",
+                admissionLink: "https://study.uq.edu.au/admissions",
+                scholarshipLink: "https://scholarships.uq.edu.au/"
+            },
+            {
+                type: "university",
+                region: "Australia",
+                title: "University of Auckland",
+                country: "New Zealand (Oceania)",
+                flag: "🇳🇿",
+                badge: "Top New Zealand",
+                description: "New Zealand's leading university offering international student excellence scholarships across all faculties.",
+                admissionLink: "https://www.auckland.ac.nz/en/study/applications-and-admissions.html",
+                scholarshipLink: "https://www.auckland.ac.nz/en/study/scholarships-and-awards.html"
+            }
+        ];
+
+        // State Management
+        let currentCategory = "all";
+        const portalGrid = document.getElementById("portalGrid");
+        const searchInput = document.getElementById("searchInput");
+        const noResults = document.getElementById("noResults");
+        const uniCountEl = document.getElementById("uniCount");
+        const scholarshipCountEl = document.getElementById("scholarshipCount");
+
+        // Calculate Stats
+        uniCountEl.textContent = academicData.filter(item => item.type === 'university').length;
+        scholarshipCountEl.textContent = academicData.filter(item => item.type === 'scholarship').length;
+
+        // Dark Mode Logic
+        document.getElementById("themeToggle").addEventListener("click", () => {
+            document.documentElement.classList.toggle("dark");
+        });
+
+        // Set Tab Category
+        window.setCategory = function(cat) {
+            currentCategory = cat;
+            const buttons = document.querySelectorAll("#tabGroup button");
+            buttons.forEach(btn => {
+                btn.className = "px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all border bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300";
+            });
+            const activeBtn = document.getElementById(`tab-${cat}`);
+            if(activeBtn) {
+                activeBtn.className = "px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all border bg-blue-600 text-white border-blue-600 shadow-md";
+            }
+            renderGrid();
+        };
+
+        // Render Cards
+        function renderGrid() {
+            const query = searchInput.value.toLowerCase().trim();
+            portalGrid.innerHTML = "";
+            let matches = 0;
+
+            academicData.forEach(item => {
+                // Category Filter Logic
+                let matchesCategory = false;
+                if (currentCategory === "all") matchesCategory = true;
+                else if (currentCategory === item.type) matchesCategory = true;
+                else if (currentCategory === item.region.toLowerCase()) matchesCategory = true;
+
+                if (!matchesCategory) return;
+
+                // Search Filter Logic
+                const searchMatch = 
+                    item.title.toLowerCase().includes(query) ||
+                    item.country.toLowerCase().includes(query) ||
+                    item.description.toLowerCase().includes(query) ||
+                    item.badge.toLowerCase().includes(query);
+
+                if (!searchMatch) return;
+
+                matches++;
+
+                // Build Card
+                const card = document.createElement("div");
+                card.className = "bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300";
+
+                const isScholarship = item.type === "scholarship";
+                const badgeColor = isScholarship 
+                    ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300"
+                    : "bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300";
+
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-2xl">${item.flag}</span>
+                            <span class="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-md ${badgeColor}">
+                                ${item.badge}
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">${item.title}</h3>
+                        <p class="text-xs font-medium text-slate-400 mb-3"><i class="fa-solid fa-location-dot text-slate-400 mr-1"></i> ${item.country}</p>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-6">${item.description}</p>
+                    </div>
+
+                    <div class="space-y-2 pt-4 border-t border-slate-100 dark:border-slate-800/80">
+                        <a href="${item.admissionLink}" target="_blank" rel="noopener noreferrer" 
+                            class="w-full py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold flex items-center justify-center gap-2 transition-all">
+                            <span>Official Admissions Portal</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                        <a href="${item.scholarshipLink}" target="_blank" rel="noopener noreferrer" 
+                            class="w-full py-2.5 px-4 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-semibold flex items-center justify-center gap-2 transition-all">
+                            <span>Scholarships & Aid</span>
+                            <i class="fa-solid fa-award text-amber-500"></i>
+                        </a>
+                    </div>
+                `;
+
+                portalGrid.appendChild(card);
+            });
+
+            if (matches === 0) {
+                noResults.classList.remove("hidden");
+            } else {
+                noResults.classList.add("hidden");
+            }
+        }
+
+        // Attach Event Listeners
+        searchInput.addEventListener("input", renderGrid);
+
+        // Initial Load
+        renderGrid();
+    </script>
+</body>
+</html>
